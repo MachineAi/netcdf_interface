@@ -1,0 +1,502 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module interface_Model</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>interface_Model</strong></big></big> (version v0.1.2, 2011-03-28)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/gis/Documents/interface_10032011/interface_Model.py">/home/gis/Documents/interface_10032011/interface_Model.py</a></font></td></tr></table>
+    <p><tt>Model&nbsp;module&nbsp;for&nbsp;Interface.<br>
+&nbsp;<br>
+This&nbsp;module&nbsp;contains&nbsp;classes&nbsp;to&nbsp;handle&nbsp;operation&nbsp;on&nbsp;data&nbsp;and&nbsp;is&nbsp;controlled&nbsp;by<br>
+the&nbsp;class&nbsp;'ControlModel'&nbsp;of&nbsp;the&nbsp;module&nbsp;'interface_Control'</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="dateutil.html">dateutil</a><br>
+<a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="xml.dom.minidom.html">xml.dom.minidom</a><br>
+<a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top><a href="os.html">os</a><br>
+<a href="time.html">time</a><br>
+</td><td width="25%" valign=top><a href="xml.html">xml</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="interface_Model.html#ModelDataRead">ModelDataRead</a>
+</font></dt><dd>
+<dl>
+<dt><font face="helvetica, arial"><a href="interface_Model.html#ModelDataGridRead">ModelDataGridRead</a>
+</font></dt><dt><font face="helvetica, arial"><a href="interface_Model.html#ModelDataStationRead">ModelDataStationRead</a>
+</font></dt></dl>
+</dd>
+<dt><font face="helvetica, arial"><a href="interface_Model.html#ModelDataWrite">ModelDataWrite</a>
+</font></dt><dt><font face="helvetica, arial"><a href="interface_Model.html#ModelMetadataNcmlRead">ModelMetadataNcmlRead</a>
+</font></dt><dt><font face="helvetica, arial"><a href="interface_Model.html#ModelMetadataNcmlWrite">ModelMetadataNcmlWrite</a>
+</font></dt><dt><font face="helvetica, arial"><a href="interface_Model.html#ModelNetCdfRead">ModelNetCdfRead</a>
+</font></dt><dt><font face="helvetica, arial"><a href="interface_Model.html#ModelNetCdfWrite">ModelNetCdfWrite</a>
+</font></dt><dt><font face="helvetica, arial"><a href="interface_Model.html#ModelPrint">ModelPrint</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelDataGridRead">class <strong>ModelDataGridRead</strong></a>(<a href="interface_Model.html#ModelDataRead">ModelDataRead</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;reading&nbsp;coordinate&nbsp;metadata&nbsp;file&nbsp;and&nbsp;numpy&nbsp;data&nbsp;array&nbsp;of&nbsp;shape<br>
+(variable,&nbsp;time,&nbsp;z,&nbsp;lat,&nbsp;lon).&nbsp;This&nbsp;class&nbsp;inherits&nbsp;from&nbsp;'<a href="#ModelDataRead">ModelDataRead</a>'<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelDataGridRead-__init__"><strong>__init__</strong></a>(self, infile_)</dt><dd><tt>Constructor.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+infile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;file&nbsp;name&nbsp;without&nbsp;suffix&nbsp;(string).&nbsp;Both&nbsp;the&nbsp;numpy&nbsp;data&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;the&nbsp;coordinate&nbsp;metadata&nbsp;file&nbsp;must&nbsp;have&nbsp;the&nbsp;same&nbsp;name&nbsp;(expect&nbsp;of&nbsp;suffix)</tt></dd></dl>
+
+<dl><dt><a name="ModelDataGridRead-checkDataModel"><strong>checkDataModel</strong></a>(self, pDataList_)</dt><dd><tt>Check&nbsp;if&nbsp;complete&nbsp;data&nbsp;model&nbsp;is&nbsp;correct&nbsp;and&nbsp;consistent</tt></dd></dl>
+
+<dl><dt><a name="ModelDataGridRead-getCoordinateVariables"><strong>getCoordinateVariables</strong></a>(self, pVarList_)</dt><dd><tt>Reading&nbsp;coordinate&nbsp;information&nbsp;in&nbsp;coordinate&nbsp;metadata&nbsp;file&nbsp;and&nbsp;attaching<br>
+calculated&nbsp;coordinates&nbsp;to&nbsp;coordinate&nbsp;variables&nbsp;in&nbsp;internal&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ModelDataGridRead-getDataVariables"><strong>getDataVariables</strong></a>(self, pVarList_)</dt><dd><tt>Reading&nbsp;data&nbsp;in&nbsp;numpy&nbsp;data&nbsp;array&nbsp;and&nbsp;attaching&nbsp;these&nbsp;data&nbsp;as&nbsp;separate&nbsp;numpy&nbsp;arrays<br>
+to&nbsp;data&nbsp;variables&nbsp;in&nbsp;internal&nbsp;model.&nbsp;The&nbsp;shape&nbsp;of&nbsp;the&nbsp;separate&nbsp;numpy&nbsp;arrays&nbsp;will<br>
+be&nbsp;transformed&nbsp;to&nbsp;(time,&nbsp;z,&nbsp;lat,&nbsp;lon)&nbsp;for&nbsp;the&nbsp;internal&nbsp;model.<br>
+&nbsp;<br>
+IMPORTANT:<br>
+The&nbsp;variable&nbsp;order&nbsp;and&nbsp;the&nbsp;number&nbsp;of&nbsp;variables&nbsp;in&nbsp;the&nbsp;numpy&nbsp;array&nbsp;must&nbsp;be&nbsp;coherent<br>
+with&nbsp;the&nbsp;variable&nbsp;order&nbsp;and&nbsp;the&nbsp;number&nbsp;of&nbsp;variables&nbsp;in&nbsp;the&nbsp;internal&nbsp;model!</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelDataRead">class <strong>ModelDataRead</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Superclass&nbsp;for&nbsp;reading&nbsp;numpy&nbsp;data&nbsp;array&nbsp;and&nbsp;coordinate&nbsp;metadata&nbsp;file<br>
+as&nbsp;well&nbsp;as&nbsp;checking&nbsp;operations&nbsp;for&nbsp;internal&nbsp;datamodel<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelDataRead-__init__"><strong>__init__</strong></a>(self, infile_)</dt><dd><tt>Constructor</tt></dd></dl>
+
+<dl><dt><a name="ModelDataRead-checkDataModel"><strong>checkDataModel</strong></a>(self, pDataList_)</dt><dd><tt>Check&nbsp;if&nbsp;internal&nbsp;data&nbsp;model&nbsp;is&nbsp;correct.<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;checks&nbsp;dimensions&nbsp;as&nbsp;well&nbsp;as&nbsp;coordinate&nbsp;and&nbsp;data&nbsp;variables&nbsp;of&nbsp;a&nbsp;data&nbsp;model&nbsp;if&nbsp;they<br>
+are&nbsp;correct&nbsp;and&nbsp;consistent&nbsp;to&nbsp;each&nbsp;other&nbsp;as&nbsp;they&nbsp;are&nbsp;declared&nbsp;in&nbsp;the&nbsp;NCML&nbsp;and&nbsp;coordinate<br>
+metadata&nbsp;and&nbsp;numpy&nbsp;data&nbsp;array.&nbsp;If&nbsp;no&nbsp;error&nbsp;is&nbsp;found,&nbsp;the&nbsp;NetCDF&nbsp;creation&nbsp;should&nbsp;be&nbsp;successfull<br>
+out&nbsp;of&nbsp;this&nbsp;data&nbsp;modell.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+pDataList&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;internal&nbsp;data&nbsp;model<br>
+&nbsp;<br>
+RETURN_VALUE:<br>
+Boolean:&nbsp;True&nbsp;if&nbsp;no&nbsp;error&nbsp;could&nbsp;be&nbsp;found,&nbsp;False&nbsp;if&nbsp;one&nbsp;or&nbsp;more&nbsp;errors&nbsp;were&nbsp;found<br>
+&nbsp;<br>
+COMMENT:<br>
+This&nbsp;function&nbsp;only&nbsp;checks&nbsp;the&nbsp;correctness&nbsp;of&nbsp;the&nbsp;data&nbsp;model&nbsp;and&nbsp;its&nbsp;consistency&nbsp;so&nbsp;that&nbsp;the<br>
+NetCDF&nbsp;creation&nbsp;out&nbsp;of&nbsp;this&nbsp;data&nbsp;model&nbsp;will&nbsp;be&nbsp;successfull.&nbsp;It&nbsp;does&nbsp;not&nbsp;check&nbsp;if&nbsp;any&nbsp;NetCDF&nbsp;convention&nbsp;is<br>
+respected.</tt></dd></dl>
+
+<dl><dt><a name="ModelDataRead-getCoordinateVariables"><strong>getCoordinateVariables</strong></a>(self, pVarList_, dimVar_, dimTime_, dimZ_, dimLat_, dimLon_, dimId_)</dt><dd><tt>Obtain&nbsp;coordinate&nbsp;information.<br>
+&nbsp;<br>
+Get&nbsp;coordinate&nbsp;information&nbsp;out&nbsp;of&nbsp;coordinate&nbsp;metadata&nbsp;file&nbsp;and&nbsp;calculate&nbsp;coordinate&nbsp;values<br>
+by&nbsp;the&nbsp;use&nbsp;of&nbsp;this&nbsp;information.&nbsp;Attach&nbsp;coordinate&nbsp;values&nbsp;as&nbsp;numpy&nbsp;array&nbsp;to&nbsp;corresponding<br>
+variable&nbsp;in&nbsp;internal&nbsp;model<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+pVarList&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;variable&nbsp;list&nbsp;of&nbsp;internal&nbsp;model<br>
+dimVar,&nbsp;dimTime,&nbsp;dimZ,&nbsp;dimLat,&nbsp;dimLon,&nbsp;dimId&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;number&nbsp;of&nbsp;values&nbsp;to&nbsp;generate<br>
+&nbsp;<br>
+RETURN_VALUE:<br>
+Actualized&nbsp;variable&nbsp;list&nbsp;with&nbsp;coordinate&nbsp;data&nbsp;arrays&nbsp;attached&nbsp;to&nbsp;corresponding&nbsp;variables<br>
+&nbsp;<br>
+IMPORTANT:<br>
+In&nbsp;case&nbsp;that&nbsp;separate&nbsp;values&nbsp;instead&nbsp;of&nbsp;minimum&nbsp;and&nbsp;maximum&nbsp;values&nbsp;for&nbsp;cpordinates&nbsp;are<br>
+provided,&nbsp;the&nbsp;number&nbsp;of&nbsp;these&nbsp;values&nbsp;must&nbsp;be&nbsp;the&nbsp;same&nbsp;as&nbsp;the&nbsp;shape&nbsp;of&nbsp;the&nbsp;corresponding<br>
+dimension.</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelDataStationRead">class <strong>ModelDataStationRead</strong></a>(<a href="interface_Model.html#ModelDataRead">ModelDataRead</a>)</font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;reading&nbsp;coordinate&nbsp;metadata&nbsp;file&nbsp;and&nbsp;numpy&nbsp;data&nbsp;array&nbsp;of&nbsp;shape<br>
+(time,&nbsp;variable).&nbsp;This&nbsp;class&nbsp;inherits&nbsp;from&nbsp;'<a href="#ModelDataRead">ModelDataRead</a>'<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelDataStationRead-__init__"><strong>__init__</strong></a>(self, infile_)</dt><dd><tt>Constructor.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+infile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;file&nbsp;name&nbsp;without&nbsp;suffix&nbsp;(string).&nbsp;Both&nbsp;the&nbsp;numpy&nbsp;data&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;the&nbsp;coordinate&nbsp;metadata&nbsp;file&nbsp;must&nbsp;have&nbsp;the&nbsp;same&nbsp;name&nbsp;(expect&nbsp;of&nbsp;suffix)</tt></dd></dl>
+
+<dl><dt><a name="ModelDataStationRead-checkDataModel"><strong>checkDataModel</strong></a>(self, pDataList_)</dt><dd><tt>Check&nbsp;if&nbsp;complete&nbsp;data&nbsp;model&nbsp;is&nbsp;correct&nbsp;and&nbsp;consistent</tt></dd></dl>
+
+<dl><dt><a name="ModelDataStationRead-getCoordinateVariables"><strong>getCoordinateVariables</strong></a>(self, pVarList_)</dt><dd><tt>Reading&nbsp;coordinate&nbsp;information&nbsp;in&nbsp;coordinate&nbsp;metadata&nbsp;file&nbsp;and&nbsp;attaching<br>
+calculated&nbsp;coordinates&nbsp;to&nbsp;coordinate&nbsp;variables&nbsp;in&nbsp;internal&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ModelDataStationRead-getDataVariables"><strong>getDataVariables</strong></a>(self, pVarList_)</dt><dd><tt>Reading&nbsp;data&nbsp;in&nbsp;numpy&nbsp;data&nbsp;array&nbsp;and&nbsp;attaching&nbsp;these&nbsp;data&nbsp;as&nbsp;separate&nbsp;numpy&nbsp;arrays<br>
+to&nbsp;data&nbsp;variables&nbsp;in&nbsp;internal&nbsp;model.&nbsp;The&nbsp;shape&nbsp;of&nbsp;the&nbsp;separate&nbsp;numpy&nbsp;arrays&nbsp;will<br>
+be&nbsp;transformed&nbsp;to&nbsp;(time,&nbsp;z,&nbsp;lat,&nbsp;lon)&nbsp;for&nbsp;the&nbsp;internal&nbsp;model.<br>
+&nbsp;<br>
+IMPORTANT:<br>
+The&nbsp;variable&nbsp;order&nbsp;and&nbsp;the&nbsp;number&nbsp;of&nbsp;variables&nbsp;in&nbsp;the&nbsp;numpy&nbsp;array&nbsp;must&nbsp;be&nbsp;coherent<br>
+with&nbsp;the&nbsp;variable&nbsp;order&nbsp;and&nbsp;the&nbsp;number&nbsp;of&nbsp;variables&nbsp;in&nbsp;the&nbsp;internal&nbsp;model!</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelDataWrite">class <strong>ModelDataWrite</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;writing&nbsp;a&nbsp;numpy&nbsp;data&nbsp;array&nbsp;and&nbsp;a&nbsp;coordinate&nbsp;metadata&nbsp;file&nbsp;out&nbsp;of<br>
+internal&nbsp;model<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelDataWrite-__init__"><strong>__init__</strong></a>(self, infile_)</dt><dd><tt>Constructor.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+infile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;file&nbsp;name&nbsp;without&nbsp;suffix&nbsp;(string).&nbsp;Both&nbsp;the&nbsp;numpy&nbsp;data&nbsp;array<br>
+&nbsp;&nbsp;&nbsp;&nbsp;and&nbsp;the&nbsp;coordinate&nbsp;metadata&nbsp;file&nbsp;will&nbsp;have&nbsp;the&nbsp;same&nbsp;name&nbsp;(expect&nbsp;of&nbsp;suffix)</tt></dd></dl>
+
+<dl><dt><a name="ModelDataWrite-writeCoordinateVariables"><strong>writeCoordinateVariables</strong></a>(self, pVarList_)</dt><dd><tt>Get&nbsp;coordinate&nbsp;information&nbsp;from&nbsp;coordinate&nbsp;variables&nbsp;of&nbsp;internal&nbsp;model&nbsp;and<br>
+write&nbsp;coordinates&nbsp;to&nbsp;coordinate&nbsp;metadata&nbsp;file.<br>
+&nbsp;<br>
+IMPORTANT:<br>
+-&nbsp;All&nbsp;numpy&nbsp;arrays&nbsp;in&nbsp;the&nbsp;internal&nbsp;model&nbsp;that&nbsp;are&nbsp;attached&nbsp;to&nbsp;a&nbsp;coordinate&nbsp;variable<br>
+&nbsp;&nbsp;&nbsp;&nbsp;need&nbsp;to&nbsp;have&nbsp;a&nbsp;single&nbsp;dimension&nbsp;containing&nbsp;their&nbsp;coordinates</tt></dd></dl>
+
+<dl><dt><a name="ModelDataWrite-writeDataVariables"><strong>writeDataVariables</strong></a>(self, pVarList_)</dt><dd><tt>Get&nbsp;data&nbsp;values&nbsp;from&nbsp;data&nbsp;variables&nbsp;of&nbsp;internal&nbsp;model&nbsp;and&nbsp;write&nbsp;data&nbsp;variables<br>
+to&nbsp;external&nbsp;numpy&nbsp;array&nbsp;file.<br>
+&nbsp;<br>
+IMPORTANT:<br>
+-&nbsp;All&nbsp;numpy&nbsp;data&nbsp;arrays&nbsp;in&nbsp;the&nbsp;internal&nbsp;model&nbsp;(so&nbsp;each&nbsp;numpy&nbsp;array&nbsp;attached&nbsp;to&nbsp;a&nbsp;data&nbsp;variable)<br>
+must&nbsp;have&nbsp;the&nbsp;same&nbsp;shape&nbsp;and&nbsp;type&nbsp;so&nbsp;that&nbsp;they&nbsp;can&nbsp;be&nbsp;merged&nbsp;in&nbsp;a&nbsp;new&nbsp;array<br>
+-&nbsp;All&nbsp;numpy&nbsp;data&nbsp;arrays&nbsp;in&nbsp;the&nbsp;internal&nbsp;model&nbsp;have&nbsp;to&nbsp;have&nbsp;the&nbsp;shape&nbsp;(time,&nbsp;z,&nbsp;lat,&nbsp;lon)</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelMetadataNcmlRead">class <strong>ModelMetadataNcmlRead</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;reading&nbsp;NCML&nbsp;XML&nbsp;metadata<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelMetadataNcmlRead-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Destructor</tt></dd></dl>
+
+<dl><dt><a name="ModelMetadataNcmlRead-__init__"><strong>__init__</strong></a>(self, infile_)</dt><dd><tt>Constructor.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+infile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name&nbsp;of&nbsp;NCML&nbsp;file&nbsp;name&nbsp;without&nbsp;suffix&nbsp;(string)</tt></dd></dl>
+
+<dl><dt><a name="ModelMetadataNcmlRead-readDimensions"><strong>readDimensions</strong></a>(self)</dt><dd><tt>Read&nbsp;dimensions&nbsp;in&nbsp;NCML&nbsp;file&nbsp;and&nbsp;return&nbsp;new&nbsp;dimension&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="ModelMetadataNcmlRead-readGlobalAttributes"><strong>readGlobalAttributes</strong></a>(self)</dt><dd><tt>Read&nbsp;global&nbsp;attributes&nbsp;in&nbsp;NCML&nbsp;file&nbsp;and&nbsp;return&nbsp;new&nbsp;attribute&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="ModelMetadataNcmlRead-readVariables"><strong>readVariables</strong></a>(self)</dt><dd><tt>Read&nbsp;variables&nbsp;and&nbsp;appendent&nbsp;local&nbsp;attributes&nbsp;in&nbsp;NCML&nbsp;file&nbsp;and&nbsp;return&nbsp;new&nbsp;variable&nbsp;list</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelMetadataNcmlWrite">class <strong>ModelMetadataNcmlWrite</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;writing&nbsp;a&nbsp;NCML&nbsp;XML&nbsp;metadata&nbsp;file&nbsp;out&nbsp;of&nbsp;data&nbsp;of&nbsp;the&nbsp;internal&nbsp;model<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelMetadataNcmlWrite-__init__"><strong>__init__</strong></a>(self, infile_)</dt><dd><tt>Constructor.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+infile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name&nbsp;of&nbsp;NCML&nbsp;file&nbsp;name&nbsp;without&nbsp;suffix&nbsp;(string)</tt></dd></dl>
+
+<dl><dt><a name="ModelMetadataNcmlWrite-addDimensions"><strong>addDimensions</strong></a>(self, pDimList_)</dt><dd><tt>Add&nbsp;dimension&nbsp;entries&nbsp;to&nbsp;NCML&nbsp;file&nbsp;by&nbsp;the&nbsp;use&nbsp;of&nbsp;the&nbsp;internal&nbsp;models&nbsp;dimension&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="ModelMetadataNcmlWrite-addGlobalAttributes"><strong>addGlobalAttributes</strong></a>(self, pAttrList_)</dt><dd><tt>Add&nbsp;global&nbsp;attribute&nbsp;entries&nbsp;to&nbsp;NCML&nbsp;file&nbsp;by&nbsp;the&nbsp;use&nbsp;of&nbsp;the&nbsp;internal&nbsp;models&nbsp;global&nbsp;attribute&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="ModelMetadataNcmlWrite-addVariables"><strong>addVariables</strong></a>(self, pVarList_)</dt><dd><tt>Add&nbsp;variable&nbsp;metadata&nbsp;and&nbsp;local&nbsp;attribute&nbsp;entries&nbsp;to&nbsp;NCML&nbsp;file&nbsp;by&nbsp;the&nbsp;use&nbsp;of&nbsp;the&nbsp;internal&nbsp;models&nbsp;variable&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="ModelMetadataNcmlWrite-printNcmlOnScreen"><strong>printNcmlOnScreen</strong></a>(self)</dt><dd><tt>Print&nbsp;NCML&nbsp;file&nbsp;on&nbsp;screen</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelNetCdfRead">class <strong>ModelNetCdfRead</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;reading&nbsp;one&nbsp;or&nbsp;multiple&nbsp;NetCDF&nbsp;files<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelNetCdfRead-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Destructor</tt></dd></dl>
+
+<dl><dt><a name="ModelNetCdfRead-__init__"><strong>__init__</strong></a>(self, infile_)</dt><dd><tt>Constructor.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+infile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;NetCDF&nbsp;file&nbsp;name&nbsp;without&nbsp;suffix&nbsp;(string)&nbsp;or&nbsp;that&nbsp;part&nbsp;of&nbsp;the<br>
+&nbsp;&nbsp;&nbsp;&nbsp;NetCDF&nbsp;file&nbsp;name&nbsp;that&nbsp;is&nbsp;shared&nbsp;by&nbsp;all&nbsp;files&nbsp;(for&nbsp;reading&nbsp;multiple&nbsp;files),<br>
+&nbsp;&nbsp;&nbsp;&nbsp;followed&nbsp;by&nbsp;a&nbsp;wildcard&nbsp;(*).<br>
+&nbsp;<br>
+COMMENTS:<br>
+For&nbsp;reading&nbsp;and&nbsp;aggregating&nbsp;multiple&nbsp;NetCDF&nbsp;files&nbsp;all&nbsp;files&nbsp;need&nbsp;to&nbsp;be&nbsp;similiar<br>
+expect&nbsp;of&nbsp;the&nbsp;time&nbsp;coordinate&nbsp;values&nbsp;(but&nbsp;need&nbsp;to&nbsp;share&nbsp;the&nbsp;same&nbsp;time&nbsp;unit).</tt></dd></dl>
+
+<dl><dt><a name="ModelNetCdfRead-readDimensions"><strong>readDimensions</strong></a>(self)</dt><dd><tt>Reading&nbsp;dimensions&nbsp;of&nbsp;NetCDF&nbsp;file&nbsp;and&nbsp;saving&nbsp;them&nbsp;to&nbsp;internal&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ModelNetCdfRead-readGlobalAttributes"><strong>readGlobalAttributes</strong></a>(self)</dt><dd><tt>"Reading&nbsp;global&nbsp;attributes&nbsp;of&nbsp;NetCDF&nbsp;file&nbsp;and&nbsp;saving&nbsp;them&nbsp;to&nbsp;internal&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ModelNetCdfRead-readVariables"><strong>readVariables</strong></a>(self)</dt><dd><tt>Reading&nbsp;variables&nbsp;and&nbsp;associated&nbsp;local&nbsp;attributes&nbsp;of&nbsp;NetCDF&nbsp;file&nbsp;and&nbsp;saving<br>
+them&nbsp;to&nbsp;internal&nbsp;model<br>
+&nbsp;<br>
+IMPORTANT:<br>
+Activate&nbsp;function&nbsp;'.__correctVariableInputData'&nbsp;for&nbsp;manual&nbsp;bug&nbsp;fix&nbsp;of&nbsp;'issue&nbsp;34'<br>
+(slicing&nbsp;MFDataset&nbsp;variables&nbsp;with&nbsp;dimensions&nbsp;of&nbsp;length&nbsp;1)&nbsp;if&nbsp;API&nbsp;NetCDF4&nbsp;is&nbsp;older&nbsp;then&nbsp;version&nbsp;0.9</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelNetCdfWrite">class <strong>ModelNetCdfWrite</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;writing&nbsp;data&nbsp;from&nbsp;the&nbsp;internal&nbsp;model&nbsp;to&nbsp;a&nbsp;NetCDF&nbsp;file<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelNetCdfWrite-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Destructor</tt></dd></dl>
+
+<dl><dt><a name="ModelNetCdfWrite-__init__"><strong>__init__</strong></a>(self, netCdfFileName_)</dt><dd><tt>Constructor.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+infile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name&nbsp;of&nbsp;NetCDF&nbsp;file&nbsp;name&nbsp;without&nbsp;suffix&nbsp;(string)</tt></dd></dl>
+
+<dl><dt><a name="ModelNetCdfWrite-writeDimensions"><strong>writeDimensions</strong></a>(self, pDimList_)</dt><dd><tt>Write&nbsp;dimensions&nbsp;from&nbsp;the&nbsp;internal&nbsp;models&nbsp;dimension&nbsp;list&nbsp;to&nbsp;the&nbsp;NetCDF&nbsp;file</tt></dd></dl>
+
+<dl><dt><a name="ModelNetCdfWrite-writeGlobalAttributes"><strong>writeGlobalAttributes</strong></a>(self, pAttrList_)</dt><dd><tt>Write&nbsp;global&nbsp;attributes&nbsp;from&nbsp;the&nbsp;internal&nbsp;models&nbsp;global&nbsp;attribute&nbsp;list&nbsp;to&nbsp;the&nbsp;NetCDF&nbsp;file</tt></dd></dl>
+
+<dl><dt><a name="ModelNetCdfWrite-writeVariables"><strong>writeVariables</strong></a>(self, pVarList_)</dt><dd><tt>Write&nbsp;variables&nbsp;(data&nbsp;and&nbsp;metadata)&nbsp;and&nbsp;attached&nbsp;local&nbsp;attributes&nbsp;from&nbsp;the&nbsp;internal<br>
+models&nbsp;variable&nbsp;list&nbsp;to&nbsp;the&nbsp;NetCDF&nbsp;file<br>
+&nbsp;<br>
+IMPORTANT:<br>
+-&nbsp;The&nbsp;numpy&nbsp;data&nbsp;array&nbsp;must&nbsp;be&nbsp;consistent&nbsp;with&nbsp;the&nbsp;corresponding&nbsp;variable&nbsp;metadata<br>
+&nbsp;&nbsp;&nbsp;&nbsp;(shape,&nbsp;type,&nbsp;_FillValue,&nbsp;etc.)<br>
+-&nbsp;The&nbsp;numpy&nbsp;data&nbsp;array&nbsp;is&nbsp;allowed&nbsp;to&nbsp;have&nbsp;one&nbsp;to&nbsp;four&nbsp;dimensions&nbsp;(in&nbsp;general<br>
+&nbsp;&nbsp;&nbsp;&nbsp;one&nbsp;for&nbsp;coordinate&nbsp;variables&nbsp;and&nbsp;four&nbsp;for&nbsp;data&nbsp;variables)</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelPrint">class <strong>ModelPrint</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;printing&nbsp;data&nbsp;and&nbsp;metadata<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelPrint-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Destructor</tt></dd></dl>
+
+<dl><dt><a name="ModelPrint-__init__"><strong>__init__</strong></a>(self, pDataList_)</dt><dd><tt>Constructor.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+DataList&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;List&nbsp;of&nbsp;internal&nbsp;model&nbsp;with&nbsp;dimensions,&nbsp;attributes&nbsp;and&nbsp;variables<br>
+&nbsp;&nbsp;&nbsp;&nbsp;to&nbsp;print&nbsp;on&nbsp;screen</tt></dd></dl>
+
+<dl><dt><a name="ModelPrint-printCoordinateVariablesData"><strong>printCoordinateVariablesData</strong></a>(self)</dt><dd><tt>Print&nbsp;data&nbsp;of&nbsp;coordinate&nbsp;variables&nbsp;of&nbsp;internal&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ModelPrint-printDataVariablesData"><strong>printDataVariablesData</strong></a>(self)</dt><dd><tt>Print&nbsp;data&nbsp;of&nbsp;data&nbsp;variables&nbsp;of&nbsp;internal&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ModelPrint-printDimensions"><strong>printDimensions</strong></a>(self)</dt><dd><tt>Print&nbsp;dimensions&nbsp;of&nbsp;internal&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ModelPrint-printGlobalAttributes"><strong>printGlobalAttributes</strong></a>(self)</dt><dd><tt>Print&nbsp;global&nbsp;attributes&nbsp;of&nbsp;internal&nbsp;model</tt></dd></dl>
+
+<dl><dt><a name="ModelPrint-printVariables"><strong>printVariables</strong></a>(self)</dt><dd><tt>Print&nbsp;variables&nbsp;and&nbsp;attached&nbsp;local&nbsp;attributes&nbsp;of&nbsp;internal&nbsp;model</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-POINTER"><strong>POINTER</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-addressof"><strong>addressof</strong></a>(...)</dt><dd><tt><a href="#-addressof">addressof</a>(C&nbsp;instance)&nbsp;-&gt;&nbsp;integer<br>
+Return&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;C&nbsp;instance&nbsp;internal&nbsp;buffer</tt></dd></dl>
+ <dl><dt><a name="-alignment"><strong>alignment</strong></a>(...)</dt><dd><tt><a href="#-alignment">alignment</a>(C&nbsp;type)&nbsp;-&gt;&nbsp;integer<br>
+<a href="#-alignment">alignment</a>(C&nbsp;instance)&nbsp;-&gt;&nbsp;integer<br>
+Return&nbsp;the&nbsp;alignment&nbsp;requirements&nbsp;of&nbsp;a&nbsp;C&nbsp;instance</tt></dd></dl>
+ <dl><dt><a name="-byref"><strong>byref</strong></a>(...)</dt><dd><tt><a href="#-byref">byref</a>(C&nbsp;instance[,&nbsp;offset=0])&nbsp;-&gt;&nbsp;byref-object<br>
+Return&nbsp;a&nbsp;pointer&nbsp;lookalike&nbsp;to&nbsp;a&nbsp;C&nbsp;instance,&nbsp;only&nbsp;usable<br>
+as&nbsp;function&nbsp;argument</tt></dd></dl>
+ <dl><dt><a name="-date2num"><strong>date2num</strong></a>(...)</dt><dd><tt><a href="#-date2num">date2num</a>(dates,units,calendar='standard')<br>
+&nbsp;<br>
+Return&nbsp;numeric&nbsp;time&nbsp;values&nbsp;given&nbsp;datetime&nbsp;objects.&nbsp;The&nbsp;units<br>
+of&nbsp;the&nbsp;numeric&nbsp;time&nbsp;values&nbsp;are&nbsp;described&nbsp;by&nbsp;the&nbsp;L{units}&nbsp;argument<br>
+and&nbsp;the&nbsp;L{calendar}&nbsp;keyword.&nbsp;The&nbsp;datetime&nbsp;objects&nbsp;must<br>
+be&nbsp;in&nbsp;UTC&nbsp;with&nbsp;no&nbsp;time-zone&nbsp;offset.&nbsp;&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;<br>
+time-zone&nbsp;offset&nbsp;in&nbsp;C{units},&nbsp;it&nbsp;will&nbsp;be&nbsp;applied&nbsp;to&nbsp;the<br>
+returned&nbsp;numeric&nbsp;values.<br>
+&nbsp;<br>
+Like&nbsp;the&nbsp;matplotlib&nbsp;C{date2num}&nbsp;function,&nbsp;except&nbsp;that&nbsp;it&nbsp;allows<br>
+for&nbsp;different&nbsp;units&nbsp;and&nbsp;calendars.&nbsp;&nbsp;Behaves&nbsp;the&nbsp;same&nbsp;if<br>
+C{units&nbsp;=&nbsp;'days&nbsp;since&nbsp;0001-01-01&nbsp;00:00:00'}&nbsp;and&nbsp;<br>
+C{calendar&nbsp;=&nbsp;'proleptic_gregorian'}.<br>
+&nbsp;<br>
+@param&nbsp;dates:&nbsp;A&nbsp;datetime&nbsp;object&nbsp;or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;datetime&nbsp;objects.<br>
+&nbsp;The&nbsp;datetime&nbsp;objects&nbsp;should&nbsp;not&nbsp;include&nbsp;a&nbsp;time-zone&nbsp;offset.<br>
+&nbsp;<br>
+@param&nbsp;units:&nbsp;a&nbsp;string&nbsp;of&nbsp;the&nbsp;form&nbsp;C{'B{time&nbsp;units}&nbsp;since&nbsp;B{reference&nbsp;time}}'<br>
+&nbsp;describing&nbsp;the&nbsp;time&nbsp;units.&nbsp;B{C{time&nbsp;units}}&nbsp;can&nbsp;be&nbsp;days,&nbsp;hours,&nbsp;minutes<br>
+&nbsp;or&nbsp;seconds.&nbsp;&nbsp;B{C{reference&nbsp;time}}&nbsp;is&nbsp;the&nbsp;time&nbsp;origin.&nbsp;A&nbsp;valid&nbsp;choice<br>
+&nbsp;would&nbsp;be&nbsp;units=C{'hours&nbsp;since&nbsp;1800-01-01&nbsp;00:00:00&nbsp;-6:00'}.<br>
+&nbsp;<br>
+@param&nbsp;calendar:&nbsp;describes&nbsp;the&nbsp;calendar&nbsp;used&nbsp;in&nbsp;the&nbsp;time&nbsp;calculations.&nbsp;<br>
+&nbsp;All&nbsp;the&nbsp;values&nbsp;currently&nbsp;defined&nbsp;in&nbsp;the&nbsp;U{CF&nbsp;metadata&nbsp;convention&nbsp;<br>
+&nbsp;&lt;<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/">http://cf-pcmdi.llnl.gov/documents/cf-conventions/</a>&gt;}&nbsp;are&nbsp;supported.<br>
+&nbsp;Valid&nbsp;calendars&nbsp;C{'standard',&nbsp;'gregorian',&nbsp;'proleptic_gregorian'<br>
+&nbsp;'noleap',&nbsp;'365_day',&nbsp;'360_day',&nbsp;'julian',&nbsp;'all_leap',&nbsp;'366_day'}.<br>
+&nbsp;Default&nbsp;is&nbsp;C{'standard'},&nbsp;which&nbsp;is&nbsp;a&nbsp;mixed&nbsp;Julian/Gregorian&nbsp;calendar.<br>
+&nbsp;<br>
+@return:&nbsp;a&nbsp;numeric&nbsp;time&nbsp;value,&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;numeric&nbsp;time&nbsp;values.<br>
+&nbsp;<br>
+The&nbsp;maximum&nbsp;resolution&nbsp;of&nbsp;the&nbsp;numeric&nbsp;time&nbsp;values&nbsp;is&nbsp;1&nbsp;second.</tt></dd></dl>
+ <dl><dt><a name="-get_errno"><strong>get_errno</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-num2date"><strong>num2date</strong></a>(...)</dt><dd><tt><a href="#-num2date">num2date</a>(times,units,calendar='standard')<br>
+&nbsp;<br>
+Return&nbsp;datetime&nbsp;objects&nbsp;given&nbsp;numeric&nbsp;time&nbsp;values.&nbsp;The&nbsp;units<br>
+of&nbsp;the&nbsp;numeric&nbsp;time&nbsp;values&nbsp;are&nbsp;described&nbsp;by&nbsp;the&nbsp;C{units}&nbsp;argument<br>
+and&nbsp;the&nbsp;C{calendar}&nbsp;keyword.&nbsp;The&nbsp;returned&nbsp;datetime&nbsp;objects&nbsp;represent&nbsp;<br>
+UTC&nbsp;with&nbsp;no&nbsp;time-zone&nbsp;offset,&nbsp;even&nbsp;if&nbsp;the&nbsp;specified&nbsp;<br>
+C{units}&nbsp;contain&nbsp;a&nbsp;time-zone&nbsp;offset.<br>
+&nbsp;<br>
+Like&nbsp;the&nbsp;matplotlib&nbsp;C{num2date}&nbsp;function,&nbsp;except&nbsp;that&nbsp;it&nbsp;allows<br>
+for&nbsp;different&nbsp;units&nbsp;and&nbsp;calendars.&nbsp;&nbsp;Behaves&nbsp;the&nbsp;same&nbsp;if<br>
+C{units&nbsp;=&nbsp;'days&nbsp;since&nbsp;001-01-01&nbsp;00:00:00'}&nbsp;and&nbsp;<br>
+C{calendar&nbsp;=&nbsp;'proleptic_gregorian'}.<br>
+&nbsp;<br>
+@param&nbsp;times:&nbsp;numeric&nbsp;time&nbsp;values.&nbsp;Maximum&nbsp;resolution&nbsp;is&nbsp;1&nbsp;second.<br>
+&nbsp;<br>
+@param&nbsp;units:&nbsp;a&nbsp;string&nbsp;of&nbsp;the&nbsp;form&nbsp;C{'B{time&nbsp;units}&nbsp;since&nbsp;B{reference&nbsp;time}}'<br>
+describing&nbsp;the&nbsp;time&nbsp;units.&nbsp;B{C{time&nbsp;units}}&nbsp;can&nbsp;be&nbsp;days,&nbsp;hours,&nbsp;minutes<br>
+or&nbsp;seconds.&nbsp;&nbsp;B{C{reference&nbsp;time}}&nbsp;is&nbsp;the&nbsp;time&nbsp;origin.&nbsp;A&nbsp;valid&nbsp;choice<br>
+would&nbsp;be&nbsp;units=C{'hours&nbsp;since&nbsp;1800-01-01&nbsp;00:00:00&nbsp;-6:00'}.<br>
+&nbsp;<br>
+@param&nbsp;calendar:&nbsp;describes&nbsp;the&nbsp;calendar&nbsp;used&nbsp;in&nbsp;the&nbsp;time&nbsp;calculations.&nbsp;<br>
+All&nbsp;the&nbsp;values&nbsp;currently&nbsp;defined&nbsp;in&nbsp;the&nbsp;U{CF&nbsp;metadata&nbsp;convention&nbsp;<br>
+&lt;<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/">http://cf-pcmdi.llnl.gov/documents/cf-conventions/</a>&gt;}&nbsp;are&nbsp;supported.<br>
+Valid&nbsp;calendars&nbsp;C{'standard',&nbsp;'gregorian',&nbsp;'proleptic_gregorian'<br>
+'noleap',&nbsp;'365_day',&nbsp;'360_day',&nbsp;'julian',&nbsp;'all_leap',&nbsp;'366_day'}.<br>
+Default&nbsp;is&nbsp;C{'standard'},&nbsp;which&nbsp;is&nbsp;a&nbsp;mixed&nbsp;Julian/Gregorian&nbsp;calendar.<br>
+&nbsp;<br>
+@return:&nbsp;a&nbsp;datetime&nbsp;instance,&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;datetime&nbsp;instances.<br>
+&nbsp;<br>
+The&nbsp;datetime&nbsp;instances&nbsp;returned&nbsp;are&nbsp;'real'&nbsp;python&nbsp;datetime&nbsp;<br>
+objects&nbsp;if&nbsp;the&nbsp;date&nbsp;falls&nbsp;in&nbsp;the&nbsp;Gregorian&nbsp;calendar&nbsp;(i.e.&nbsp;<br>
+C{calendar='proleptic_gregorian'},&nbsp;or&nbsp;C{calendar&nbsp;=&nbsp;'standard'}&nbsp;or&nbsp;C{'gregorian'}<br>
+and&nbsp;the&nbsp;date&nbsp;is&nbsp;after&nbsp;1582-10-15).&nbsp;Otherwise,&nbsp;they&nbsp;are&nbsp;'phony'&nbsp;datetime&nbsp;<br>
+objects&nbsp;which&nbsp;support&nbsp;some&nbsp;but&nbsp;not&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;'real'&nbsp;python<br>
+datetime&nbsp;objects.&nbsp;&nbsp;This&nbsp;is&nbsp;because&nbsp;the&nbsp;python&nbsp;datetime&nbsp;module&nbsp;cannot<br>
+the&nbsp;uses&nbsp;the&nbsp;C{'proleptic_gregorian'}&nbsp;calendar,&nbsp;even&nbsp;before&nbsp;the&nbsp;switch<br>
+occured&nbsp;from&nbsp;the&nbsp;Julian&nbsp;calendar&nbsp;in&nbsp;1582.&nbsp;The&nbsp;datetime&nbsp;instances<br>
+do&nbsp;not&nbsp;contain&nbsp;a&nbsp;time-zone&nbsp;offset,&nbsp;even&nbsp;if&nbsp;the&nbsp;specified&nbsp;C{units}<br>
+contains&nbsp;one.</tt></dd></dl>
+ <dl><dt><a name="-pointer"><strong>pointer</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-resize"><strong>resize</strong></a>(...)</dt><dd><tt>Resize&nbsp;the&nbsp;memory&nbsp;buffer&nbsp;of&nbsp;a&nbsp;ctypes&nbsp;instance</tt></dd></dl>
+ <dl><dt><a name="-set_conversion_mode"><strong>set_conversion_mode</strong></a>(...)</dt><dd><tt><a href="#-set_conversion_mode">set_conversion_mode</a>(encoding,&nbsp;errors)&nbsp;-&gt;&nbsp;(previous-encoding,&nbsp;previous-errors)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;encoding&nbsp;and&nbsp;error&nbsp;handling&nbsp;ctypes&nbsp;uses&nbsp;when&nbsp;converting<br>
+between&nbsp;unicode&nbsp;and&nbsp;strings.&nbsp;&nbsp;Returns&nbsp;the&nbsp;previous&nbsp;values.</tt></dd></dl>
+ <dl><dt><a name="-set_errno"><strong>set_errno</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-sizeof"><strong>sizeof</strong></a>(...)</dt><dd><tt><a href="#-sizeof">sizeof</a>(C&nbsp;type)&nbsp;-&gt;&nbsp;integer<br>
+<a href="#-sizeof">sizeof</a>(C&nbsp;instance)&nbsp;-&gt;&nbsp;integer<br>
+Return&nbsp;the&nbsp;size&nbsp;in&nbsp;bytes&nbsp;of&nbsp;a&nbsp;C&nbsp;instance</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>ALL_FLOATS</strong> = ['float64', 'double', 'Float64', 'f8', 'float', 'float32', 'Float32', 'f4']<br>
+<strong>ALL_INTS</strong> = ['byte', 'int8', 'i1', 'ubyte', 'UByte', 'uint8', 'u1', 'short', 'int16', 'Int16', 'i2', 'ushort', 'uint16', 'UInt16', 'u2', 'int', 'int32', 'Int32', 'integer', 'i4', ...]<br>
+<strong>BOOL</strong> = ['bool', 'Bool']<br>
+<strong>BYTE</strong> = ['byte', 'int8', 'i1']<br>
+<strong>BasicContext</strong> = Context(prec=9, rounding=ROUND_HALF_UP, Emin=-99...sionByZero, InvalidOperation, Clamped, Overflow])<br>
+<strong>COORD_KEYWORDS</strong> = ['time', 'height', 'elev', 'depth', 'lat', 'latitude', 'lon', 'longitude', '_id']<br>
+<strong>DECLARATION_NETCDF_STATION</strong> = '_time_series'<br>
+<strong>DEFAULT_MODE</strong> = 0<br>
+<strong>DOUBLE</strong> = ['float64', 'double', 'Float64', 'f8']<br>
+<strong>DefaultContext</strong> = Context(prec=28, rounding=ROUND_HALF_EVEN, Emin=...aps=[DivisionByZero, InvalidOperation, Overflow])<br>
+<strong>ExtendedContext</strong> = Context(prec=9, rounding=ROUND_HALF_EVEN, Emin=-..., Emax=999999999, capitals=1, flags=[], traps=[])<br>
+<strong>FILENAME_DEFAULT_SETTINGS_XML</strong> = 'interface_Settings.xml'<br>
+<strong>FILENAME_SUFFIX_NCML</strong> = '__ncml.xml'<br>
+<strong>FILENAME_SUFFIX_NETCDF</strong> = '.nc'<br>
+<strong>FILENAME_SUFFIX_NUMPYDATA</strong> = '__data.npy'<br>
+<strong>FILENAME_SUFFIX_NUMPYXML</strong> = '__coords.xml'<br>
+<strong>FLOAT</strong> = ['float', 'float32', 'Float32', 'f4']<br>
+<strong>GDAL_DTYPES</strong> = ['byte', 'int8', 'i1', 'short', 'int16', 'Int16', 'i2', 'ushort', 'uint16', 'UInt16', 'u2', 'int', 'int32', 'Int32', 'integer', 'i4', 'uint', 'uint32', 'UInt32', 'unsigned_integer', ...]<br>
+<strong>HEIGHT</strong> = ['height', 'elev', 'depth']<br>
+<strong>HEIGHT_UNITS</strong> = ['m', '1']<br>
+<strong>ID</strong> = ['_id']<br>
+<strong>INTEGER</strong> = ['int', 'int32', 'Int32', 'integer', 'i4']<br>
+<strong>INTERFACE_LOGGER_ROOT</strong> = 'interface'<br>
+<strong>LATITUDE</strong> = ['lat', 'latitude']<br>
+<strong>LATITUDE_UNITS</strong> = ['degrees_north']<br>
+<strong>LONG</strong> = ['long', 'int64', 'Int64', 'i8']<br>
+<strong>LONGITUDE</strong> = ['lon', 'longitude']<br>
+<strong>LONGITUDE_UNITS</strong> = ['degrees_east']<br>
+<strong>MODEL_REFERENCE_TIME_UNITS</strong> = ['hours since 1970-01-01 00:00:0.0', 'msec since 1970-01-01 00:00:0.0']<br>
+<strong>NETCDF3_DTYPES</strong> = ['byte', 'int8', 'i1', 'short', 'int16', 'Int16', 'i2', 'int', 'int32', 'Int32', 'integer', 'i4', 'float', 'float32', 'Float32', 'f4', 'float64', 'double', 'Float64', 'f8', ...]<br>
+<strong>NETCDF_FORMAT</strong> = 'NETCDF3_CLASSIC'<br>
+<strong>NUMPY_DTYPES</strong> = ['bool', 'Bool', 'byte', 'int8', 'i1', 'ubyte', 'UByte', 'uint8', 'u1', 'short', 'int16', 'Int16', 'i2', 'ushort', 'uint16', 'UInt16', 'u2', 'int', 'int32', 'Int32', ...]<br>
+<strong>ROUND_05UP</strong> = 'ROUND_05UP'<br>
+<strong>ROUND_CEILING</strong> = 'ROUND_CEILING'<br>
+<strong>ROUND_DOWN</strong> = 'ROUND_DOWN'<br>
+<strong>ROUND_FLOOR</strong> = 'ROUND_FLOOR'<br>
+<strong>ROUND_HALF_DOWN</strong> = 'ROUND_HALF_DOWN'<br>
+<strong>ROUND_HALF_EVEN</strong> = 'ROUND_HALF_EVEN'<br>
+<strong>ROUND_HALF_UP</strong> = 'ROUND_HALF_UP'<br>
+<strong>ROUND_UP</strong> = 'ROUND_UP'<br>
+<strong>RTLD_GLOBAL</strong> = 256<br>
+<strong>RTLD_LOCAL</strong> = 0<br>
+<strong>SHORT</strong> = ['short', 'int16', 'Int16', 'i2']<br>
+<strong>STRING</strong> = ['char', 'string', 'S1']<br>
+<strong>TIME</strong> = ['time']<br>
+<strong>U_BYTE</strong> = ['ubyte', 'UByte', 'uint8', 'u1']<br>
+<strong>U_INTEGER</strong> = ['uint', 'uint32', 'UInt32', 'unsigned_integer', 'u4']<br>
+<strong>U_LONG</strong> = ['ulong', 'uint64', 'UInt64', 'u8']<br>
+<strong>U_SHORT</strong> = ['ushort', 'uint16', 'UInt16', 'u2']<br>
+<strong>__author__</strong> = 'Nicolai Holzer'<br>
+<strong>__author_email__</strong> = 'first-name dot last-name @ mailbox.tu-dresden.de'<br>
+<strong>__date__</strong> = '2011-03-28'<br>
+<strong>__version__</strong> = 'v0.1.2'<br>
+<strong>cdll</strong> = &lt;ctypes.LibraryLoader object&gt;<br>
+<strong>environ</strong> = {'LANG': 'en_US.UTF-8', 'USERNAME': 'root', 'TER...36:*.spx=00;36:*.xspf=00;36:', 'DISPLAY': ':0.0'}<br>
+<strong>memmove</strong> = &lt;CFunctionType object&gt;<br>
+<strong>memset</strong> = &lt;CFunctionType object&gt;<br>
+<strong>pydll</strong> = &lt;ctypes.LibraryLoader object&gt;<br>
+<strong>pythonapi</strong> = &lt;PyDLL 'None', handle a17918 at b73899ec&gt;</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Nicolai&nbsp;Holzer</td></tr></table>
+</body></html>

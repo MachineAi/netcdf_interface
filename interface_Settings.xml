@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<settings>
+    <interface>
+        <data directory="data/" check="cf+default"/>
+        <logger path="interface.log" loglevelconsole="info" loglevelfile="debug"/>
+        <udunits path="/usr/share/xml/udunits/udunits2.xml" library="libudunits2.so.0.0.0"/>
+    </interface>
+    <netcdf>
+        <axis time="time" height="height" latitude="latitude" longitude="longitude"/>
+        <dimension>
+            <time isUnlimited="true"/>
+        </dimension>
+        <attribute Conventions="CF-1.4" institution="LSiiT, University of Strasbourg, France"/>
+        <variable>
+            <time type="double">
+                <attribute units="hours since 1970-01-01 00:00:0.0" calendar="gregorian"/>
+            </time>
+            <height type="double">
+                <attribute positive="up"/>
+            </height>
+            <latitude type="double">
+                <attribute units="degrees_north"/>
+            </latitude>
+            <longitude type="double">
+                <attribute units="degrees_east"/>
+            </longitude>
+        </variable>
+    </netcdf>
+</settings>

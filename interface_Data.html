@@ -1,0 +1,133 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module interface_Data</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>interface_Data</strong></big></big> (version v0.1.1, 2011-03-28)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/gis/Documents/interface_10032011/interface_Data.py">/home/gis/Documents/interface_10032011/interface_Data.py</a></font></td></tr></table>
+    <p><tt>Data&nbsp;class&nbsp;for&nbsp;Interface.<br>
+&nbsp;<br>
+This&nbsp;class&nbsp;is&nbsp;storing&nbsp;metadata&nbsp;of&nbsp;dimensions,&nbsp;attributes&nbsp;and&nbsp;variables&nbsp;as&nbsp;well&nbsp;as<br>
+data&nbsp;of&nbsp;variables&nbsp;in&nbsp;an&nbsp;internal&nbsp;data&nbsp;model.<br>
+Metadata&nbsp;information&nbsp;must&nbsp;be&nbsp;provided&nbsp;according&nbsp;to&nbsp;NetCDF&nbsp;NCML&nbsp;XML&nbsp;file&nbsp;schema.<br>
+Data&nbsp;information&nbsp;can&nbsp;be&nbsp;attached&nbsp;to&nbsp;a&nbsp;variable&nbsp;as&nbsp;numpy&nbsp;array.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="numpy.html">numpy</a><br>
+</td><td width="25%" valign=top></td><td width="25%" valign=top></td><td width="25%" valign=top></td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="interface_Data.html#Attribute">Attribute</a>
+</font></dt><dt><font face="helvetica, arial"><a href="interface_Data.html#Dimension">Dimension</a>
+</font></dt><dt><font face="helvetica, arial"><a href="interface_Data.html#Variable">Variable</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Attribute">class <strong>Attribute</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;storing&nbsp;NetCDF&nbsp;attribute&nbsp;information<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Attribute-__init__"><strong>__init__</strong></a>(self, name_, type_, value_)</dt><dd><tt>Constructor&nbsp;for&nbsp;new&nbsp;attribute.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name&nbsp;of&nbsp;attribute&nbsp;(string)<br>
+type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;type&nbsp;of&nbsp;attribute&nbsp;(string).&nbsp;Valid&nbsp;declarations&nbsp;defined&nbsp;in&nbsp;'interface_Settings'<br>
+value&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;value&nbsp;of&nbsp;attribute&nbsp;(string)</tt></dd></dl>
+
+<dl><dt><a name="Attribute-getName"><strong>getName</strong></a>(self)</dt><dd><tt>Return&nbsp;attribute&nbsp;name</tt></dd></dl>
+
+<dl><dt><a name="Attribute-getType"><strong>getType</strong></a>(self)</dt><dd><tt>Return&nbsp;attribute&nbsp;type</tt></dd></dl>
+
+<dl><dt><a name="Attribute-getValue"><strong>getValue</strong></a>(self)</dt><dd><tt>Return&nbsp;attribute&nbsp;value</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Dimension">class <strong>Dimension</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;storing&nbsp;NetCDF&nbsp;dimension&nbsp;information<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Dimension-__init__"><strong>__init__</strong></a>(self, name_, length_, isUnlimited_)</dt><dd><tt>Constructor&nbsp;for&nbsp;new&nbsp;dimension.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name&nbsp;of&nbsp;dimension&nbsp;(string)<br>
+length&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;length&nbsp;of&nbsp;dimension&nbsp;(integer)<br>
+isUnlimited&nbsp;-&nbsp;flag&nbsp;if&nbsp;dimension&nbsp;is&nbsp;unlimited&nbsp;(boolean)</tt></dd></dl>
+
+<dl><dt><a name="Dimension-getIsUnlimited"><strong>getIsUnlimited</strong></a>(self)</dt><dd><tt>Return&nbsp;boolean&nbsp;if&nbsp;dimension&nbsp;is&nbsp;of&nbsp;unlimited&nbsp;lenght</tt></dd></dl>
+
+<dl><dt><a name="Dimension-getLength"><strong>getLength</strong></a>(self)</dt><dd><tt>Return&nbsp;dimension&nbsp;lenght</tt></dd></dl>
+
+<dl><dt><a name="Dimension-getName"><strong>getName</strong></a>(self)</dt><dd><tt>Return&nbsp;dimension&nbsp;name</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="Variable">class <strong>Variable</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Class&nbsp;for&nbsp;storing&nbsp;NetCDF&nbsp;variable&nbsp;information<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="Variable-__init__"><strong>__init__</strong></a>(self, name_, shape_, type_)</dt><dd><tt>Constructor&nbsp;for&nbsp;new&nbsp;variable.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+name&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name&nbsp;of&nbsp;variable&nbsp;(string)<br>
+shape&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;shape&nbsp;of&nbsp;variable&nbsp;(string).&nbsp;Names&nbsp;of&nbsp;shapes&nbsp;separated&nbsp;by&nbsp;space<br>
+type&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;type&nbsp;of&nbsp;variable&nbsp;(string).&nbsp;Valid&nbsp;declarations&nbsp;defined&nbsp;in&nbsp;'interface_Settings'</tt></dd></dl>
+
+<dl><dt><a name="Variable-addAttribute"><strong>addAttribute</strong></a>(self, name_, type_, value_)</dt><dd><tt>Add&nbsp;attribute&nbsp;to&nbsp;variable&nbsp;by&nbsp;attaching&nbsp;new&nbsp;attribute&nbsp;class&nbsp;to&nbsp;variable&nbsp;attribute&nbsp;list</tt></dd></dl>
+
+<dl><dt><a name="Variable-addData"><strong>addData</strong></a>(self, numpy_)</dt><dd><tt>Attach&nbsp;data&nbsp;to&nbsp;variable&nbsp;as&nbsp;numpy&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="Variable-getAttributes"><strong>getAttributes</strong></a>(self)</dt><dd><tt>Return&nbsp;list&nbsp;of&nbsp;variable&nbsp;attribute&nbsp;classes</tt></dd></dl>
+
+<dl><dt><a name="Variable-getData"><strong>getData</strong></a>(self)</dt><dd><tt>Return&nbsp;attached&nbsp;data&nbsp;of&nbsp;variable&nbsp;as&nbsp;numpy&nbsp;array</tt></dd></dl>
+
+<dl><dt><a name="Variable-getName"><strong>getName</strong></a>(self)</dt><dd><tt>Return&nbsp;variable&nbsp;name</tt></dd></dl>
+
+<dl><dt><a name="Variable-getShape"><strong>getShape</strong></a>(self)</dt><dd><tt>Return&nbsp;variable&nbsp;shape</tt></dd></dl>
+
+<dl><dt><a name="Variable-getType"><strong>getType</strong></a>(self)</dt><dd><tt>Return&nbsp;variable&nbsp;type</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>__author__</strong> = 'Nicolai Holzer'<br>
+<strong>__author_email__</strong> = 'first-name dot last-name @ mailbox.tu-dresden.de'<br>
+<strong>__date__</strong> = '2011-03-28'<br>
+<strong>__version__</strong> = 'v0.1.1'</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Nicolai&nbsp;Holzer</td></tr></table>
+</body></html>

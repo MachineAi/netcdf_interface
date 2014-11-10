@@ -1,0 +1,470 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html><head><title>Python: module gdal_2Interface</title>
+</head><body bgcolor="#f0f0f8">
+
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="heading">
+<tr bgcolor="#7799ee">
+<td valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial">&nbsp;<br><big><big><strong>gdal_2Interface</strong></big></big> (version v0.1.3, 2011-03-28)</font></td
+><td align=right valign=bottom
+><font color="#ffffff" face="helvetica, arial"><a href=".">index</a><br><a href="file:/home/gis/Documents/interface_10032011/gdal_2Interface.py">/home/gis/Documents/interface_10032011/gdal_2Interface.py</a></font></td></tr></table>
+    <p><tt>Converts&nbsp;and&nbsp;reprojects&nbsp;a&nbsp;GDAL&nbsp;readable&nbsp;dataset&nbsp;to&nbsp;the&nbsp;data&nbsp;model.<br>
+&nbsp;<br>
+Module&nbsp;for&nbsp;reading&nbsp;a&nbsp;GDAL&nbsp;compatible&nbsp;raster&nbsp;file&nbsp;and&nbsp;exporting&nbsp;it&nbsp;to&nbsp;the&nbsp;data&nbsp;model&nbsp;that&nbsp;is<br>
+consisting&nbsp;of&nbsp;the&nbsp;following&nbsp;files:&nbsp;numpy&nbsp;data&nbsp;array,&nbsp;coordinate&nbsp;metadata&nbsp;xml&nbsp;file<br>
+and&nbsp;NCML&nbsp;NetCDF&nbsp;XML&nbsp;file.<br>
+Data&nbsp;is&nbsp;considered&nbsp;as&nbsp;grid,&nbsp;therefore&nbsp;the&nbsp;shape&nbsp;of&nbsp;the&nbsp;output&nbsp;numpy&nbsp;array&nbsp;is:<br>
+(variable,&nbsp;time,&nbsp;z,&nbsp;lat,&nbsp;lon).&nbsp;Find&nbsp;more&nbsp;information&nbsp;in&nbsp;the&nbsp;documentation.</tt></p>
+<p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#aa55cc">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Modules</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#aa55cc"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><table width="100%" summary="list"><tr><td width="25%" valign=top><a href="dateutil.html">dateutil</a><br>
+<a href="osgeo.gdal.html">osgeo.gdal</a><br>
+<a href="logging.html">logging</a><br>
+</td><td width="25%" valign=top><a href="xml.dom.minidom.html">xml.dom.minidom</a><br>
+<a href="numpy.html">numpy</a><br>
+<a href="signal.html">signal</a><br>
+</td><td width="25%" valign=top><a href="struct.html">struct</a><br>
+<a href="sys.html">sys</a><br>
+<a href="termios.html">termios</a><br>
+</td><td width="25%" valign=top><a href="time.html">time</a><br>
+<a href="xml.html">xml</a><br>
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ee77aa">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Classes</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#ee77aa"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl>
+<dt><font face="helvetica, arial"><a href="gdal_2Interface.html#ControlModelGdal">ControlModelGdal</a>
+</font></dt><dt><font face="helvetica, arial"><a href="gdal_2Interface.html#ModelGdalRead">ModelGdalRead</a>
+</font></dt></dl>
+ <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ControlModelGdal">class <strong>ControlModelGdal</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>Control&nbsp;class&nbsp;for&nbsp;model&nbsp;'ModelGdal'.&nbsp;This&nbsp;class&nbsp;is&nbsp;providing&nbsp;all&nbsp;available&nbsp;functions&nbsp;for&nbsp;reading&nbsp;data<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ControlModelGdal-__init__"><strong>__init__</strong></a>(self, infile_, option_)</dt><dd><tt>Constructor&nbsp;for&nbsp;new&nbsp;control&nbsp;instance&nbsp;of&nbsp;specific&nbsp;file.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+infile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name&nbsp;of&nbsp;data&nbsp;file&nbsp;including&nbsp;filename&nbsp;extension&nbsp;(string)<br>
+option&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Parser.options&nbsp;arguments<br>
+&nbsp;<br>
+COMMENTS:<br>
+Suffixes&nbsp;will&nbsp;be&nbsp;automatically&nbsp;assigned&nbsp;and&nbsp;must&nbsp;respect&nbsp;the&nbsp;declarations<br>
+in&nbsp;the&nbsp;module&nbsp;'interface_Settings'.</tt></dd></dl>
+
+<dl><dt><a name="ControlModelGdal-completeDataModelManually"><strong>completeDataModelManually</strong></a>(self)</dt><dd><tt>Complete&nbsp;missing&nbsp;data&nbsp;and&nbsp;metadata&nbsp;manually</tt></dd></dl>
+
+<dl><dt><a name="ControlModelGdal-printGdalMetadata"><strong>printGdalMetadata</strong></a>(self)</dt><dd><tt>Read&nbsp;GDAL&nbsp;readable&nbsp;file&nbsp;and&nbsp;print&nbsp;metadata&nbsp;on&nbsp;screen</tt></dd></dl>
+
+<dl><dt><a name="ControlModelGdal-reprojectImage"><strong>reprojectImage</strong></a>(self)</dt><dd><tt>Reproject&nbsp;image&nbsp;bands&nbsp;to&nbsp;defined&nbsp;projection&nbsp;PROJECTION_DATAMODEL&nbsp;and&nbsp;extend</tt></dd></dl>
+
+<dl><dt><a name="ControlModelGdal-writeGdalMetadata"><strong>writeGdalMetadata</strong></a>(self)</dt><dd><tt>Get&nbsp;metadata&nbsp;from&nbsp;a&nbsp;GDAL&nbsp;readable&nbsp;file&nbsp;and&nbsp;write&nbsp;metadata&nbsp;to&nbsp;coordinate&nbsp;metadata&nbsp;file&nbsp;and<br>
+NCML&nbsp;XML&nbsp;file&nbsp;according&nbsp;to&nbsp;the&nbsp;specifications&nbsp;of&nbsp;the&nbsp;data&nbsp;interface</tt></dd></dl>
+
+<dl><dt><a name="ControlModelGdal-writeGdalNumpyData"><strong>writeGdalNumpyData</strong></a>(self)</dt><dd><tt>Read&nbsp;GDAL&nbsp;file&nbsp;and&nbsp;save&nbsp;data&nbsp;as&nbsp;numpy&nbsp;data&nbsp;array&nbsp;according&nbsp;to&nbsp;the&nbsp;specifications<br>
+of&nbsp;the&nbsp;data&nbsp;interface</tt></dd></dl>
+
+</td></tr></table> <p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#ffc8d8">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#000000" face="helvetica, arial"><a name="ModelGdalRead">class <strong>ModelGdalRead</strong></a></font></td></tr>
+    
+<tr bgcolor="#ffc8d8"><td rowspan=2><tt>&nbsp;&nbsp;&nbsp;</tt></td>
+<td colspan=2><tt>This&nbsp;class&nbsp;contains&nbsp;functions&nbsp;to&nbsp;handle&nbsp;read&nbsp;operations&nbsp;on&nbsp;GDAL&nbsp;data&nbsp;and&nbsp;is&nbsp;controlled&nbsp;by<br>
+the&nbsp;class&nbsp;'<a href="#ControlModelGdal">ControlModelGdal</a>'<br>&nbsp;</tt></td></tr>
+<tr><td>&nbsp;</td>
+<td width="100%">Methods defined here:<br>
+<dl><dt><a name="ModelGdalRead-__del__"><strong>__del__</strong></a>(self)</dt><dd><tt>Destructor</tt></dd></dl>
+
+<dl><dt><a name="ModelGdalRead-__init__"><strong>__init__</strong></a>(self, infile_)</dt><dd><tt>Constructor.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+infile&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;name&nbsp;of&nbsp;GDAL&nbsp;file&nbsp;name&nbsp;with&nbsp;filename&nbsp;extension&nbsp;(string)</tt></dd></dl>
+
+<dl><dt><a name="ModelGdalRead-completeDataVariables"><strong>completeDataVariables</strong></a>(self)</dt><dd><tt>Complete&nbsp;missing&nbsp;data&nbsp;variable&nbsp;value&nbsp;modification&nbsp;manually<br>
+&nbsp;<br>
+Example:&nbsp;Scale&nbsp;data&nbsp;values&nbsp;in&nbsp;case&nbsp;that&nbsp;units&nbsp;prefix&nbsp;have&nbsp;to&nbsp;be&nbsp;changed<br>
+(e.g.&nbsp;from&nbsp;hPa&nbsp;to&nbsp;Pa)&nbsp;due&nbsp;to&nbsp;defined&nbsp;unit&nbsp;in&nbsp;standard_name&nbsp;entry.</tt></dd></dl>
+
+<dl><dt><a name="ModelGdalRead-completeMetadataNcml"><strong>completeMetadataNcml</strong></a>(self)</dt><dd><tt>Complete&nbsp;missing&nbsp;data&nbsp;in&nbsp;NCML&nbsp;XML&nbsp;file&nbsp;manually</tt></dd></dl>
+
+<dl><dt><a name="ModelGdalRead-completeMetadataNumpymeta"><strong>completeMetadataNumpymeta</strong></a>(self)</dt><dd><tt>Complete&nbsp;missing&nbsp;data&nbsp;in&nbsp;metadata&nbsp;coordinate&nbsp;XML&nbsp;file&nbsp;manually</tt></dd></dl>
+
+<dl><dt><a name="ModelGdalRead-gdalFileReprojection"><strong>gdalFileReprojection</strong></a>(self, extend_, rasterSize_, bandNumber_, nodata_)</dt><dd><tt>Reproject&nbsp;image&nbsp;file&nbsp;to&nbsp;defined&nbsp;projection&nbsp;PROJECTION_DATAMODEL<br>
+&nbsp;<br>
+Reproject&nbsp;image&nbsp;file&nbsp;(or&nbsp;defined&nbsp;image&nbsp;bands&nbsp;from&nbsp;1&nbsp;to&nbsp;'bandNumber')&nbsp;to&nbsp;the&nbsp;defined<br>
+extend&nbsp;and&nbsp;to&nbsp;the&nbsp;defined&nbsp;projection&nbsp;PROJECTION_DATAMODEL&nbsp;at&nbsp;the&nbsp;defined&nbsp;raster&nbsp;size.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+extend&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Extend&nbsp;for&nbsp;'reprojection':&nbsp;LatMin,&nbsp;LatMax,&nbsp;LonMin,&nbsp;LonMax&nbsp;(float)<br>
+rasterSize&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Rastersize&nbsp;for&nbsp;'reprojection':&nbsp;Y-Rastersize,&nbsp;X-Rastersize&nbsp;(integer)<br>
+bandNumber&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Output&nbsp;image&nbsp;file&nbsp;will&nbsp;contain&nbsp;input&nbsp;band&nbsp;numbers&nbsp;from&nbsp;1&nbsp;to&nbsp;'bandNumber';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;bandNumber&nbsp;is&nbsp;'None',&nbsp;all&nbsp;bands&nbsp;will&nbsp;be&nbsp;reprojected&nbsp;(integer)<br>
+noData&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Set&nbsp;nodata&nbsp;value&nbsp;(default&nbsp;=&nbsp;NODATA,&nbsp;if&nbsp;default&nbsp;=&nbsp;''&nbsp;then&nbsp;Dataset&nbsp;nodata&nbsp;value)"&nbsp;(number)<br>
+&nbsp;<br>
+RETURN_VALUE:<br>
+Reprojected&nbsp;image&nbsp;file</tt></dd></dl>
+
+<dl><dt><a name="ModelGdalRead-printGdalMetadata"><strong>printGdalMetadata</strong></a>(self, bandNumber_, noPrintData_)</dt><dd><tt>Read&nbsp;GDAL&nbsp;file&nbsp;and&nbsp;print&nbsp;metadata&nbsp;on&nbsp;screen.&nbsp;Program&nbsp;code&nbsp;derived&nbsp;and&nbsp;adapted&nbsp;from<br>
+GDAL&nbsp;tutorial:&nbsp;<a href="http://www.gdal.org/gdal_tutorial.html">http://www.gdal.org/gdal_tutorial.html</a></tt></dd></dl>
+
+<dl><dt><a name="ModelGdalRead-readGdalFile"><strong>readGdalFile</strong></a>(self, bandDim_, bandNumber_, dataType_)</dt><dd><tt>Reads&nbsp;a&nbsp;GDAL&nbsp;file&nbsp;and&nbsp;returns&nbsp;data&nbsp;as&nbsp;numpy&nbsp;array<br>
+&nbsp;<br>
+A&nbsp;GDAL&nbsp;dataset&nbsp;contains&nbsp;a&nbsp;list&nbsp;of&nbsp;raster&nbsp;bands&nbsp;all&nbsp;having&nbsp;the&nbsp;same&nbsp;area<br>
+and&nbsp;resolution.&nbsp;Furthermore&nbsp;the&nbsp;dataset&nbsp;contains&nbsp;metadata,&nbsp;a&nbsp;georeferencing<br>
+transform&nbsp;as&nbsp;well&nbsp;as&nbsp;a&nbsp;coordinate&nbsp;system,&nbsp;the&nbsp;size&nbsp;of&nbsp;the&nbsp;raster&nbsp;and&nbsp;other&nbsp;<br>
+information.<br>
+&nbsp;<br>
+INPUT_PARAMETERS:<br>
+bandDim&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Define&nbsp;which&nbsp;NetCDF&nbsp;dimension&nbsp;should&nbsp;be&nbsp;represented&nbsp;by&nbsp;GDAL&nbsp;bands&nbsp;(string)<br>
+bandNumber&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Output&nbsp;image&nbsp;file&nbsp;will&nbsp;contain&nbsp;input&nbsp;band&nbsp;numbers&nbsp;from&nbsp;1&nbsp;to&nbsp;'bandNumber';<br>
+&nbsp;&nbsp;&nbsp;&nbsp;if&nbsp;bandNumber&nbsp;is&nbsp;'None',&nbsp;all&nbsp;bands&nbsp;will&nbsp;be&nbsp;reprojected&nbsp;(integer)<br>
+dataType&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;Define&nbsp;output&nbsp;data&nbsp;type&nbsp;of&nbsp;numpy&nbsp;array&nbsp;(string)<br>
+&nbsp;<br>
+RETURN_VALUE:<br>
+numpy&nbsp;data&nbsp;array&nbsp;with&nbsp;data&nbsp;from&nbsp;GDAL&nbsp;input&nbsp;dataset</tt></dd></dl>
+
+<dl><dt><a name="ModelGdalRead-writeMetadataNcml"><strong>writeMetadataNcml</strong></a>(self)</dt><dd><tt>Create&nbsp;new&nbsp;NCML&nbsp;XML&nbsp;file&nbsp;according&nbsp;to&nbsp;the&nbsp;specifications&nbsp;of&nbsp;the&nbsp;data&nbsp;model&nbsp;and<br>
+complete&nbsp;this&nbsp;file&nbsp;by&nbsp;the&nbsp;metadata&nbsp;that&nbsp;can&nbsp;be&nbsp;extracted&nbsp;out&nbsp;of&nbsp;input&nbsp;metadata</tt></dd></dl>
+
+<dl><dt><a name="ModelGdalRead-writeMetadataNumpymeta"><strong>writeMetadataNumpymeta</strong></a>(self)</dt><dd><tt>Create&nbsp;new&nbsp;metadata&nbsp;coordinate&nbsp;XML&nbsp;file&nbsp;according&nbsp;to&nbsp;the&nbsp;specifications&nbsp;of&nbsp;the&nbsp;data&nbsp;model&nbsp;and<br>
+complete&nbsp;this&nbsp;file&nbsp;by&nbsp;the&nbsp;metadata&nbsp;that&nbsp;can&nbsp;be&nbsp;extracted&nbsp;out&nbsp;of&nbsp;the&nbsp;grib&nbsp;file</tt></dd></dl>
+
+<dl><dt><a name="ModelGdalRead-writeNumpyData"><strong>writeNumpyData</strong></a>(self, pNumpyData_)</dt><dd><tt>Export&nbsp;numpy&nbsp;data&nbsp;array&nbsp;to&nbsp;file</tt></dd></dl>
+
+</td></tr></table></td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#eeaa77">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Functions</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#eeaa77"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><dl><dt><a name="-POINTER"><strong>POINTER</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-addressof"><strong>addressof</strong></a>(...)</dt><dd><tt><a href="#-addressof">addressof</a>(C&nbsp;instance)&nbsp;-&gt;&nbsp;integer<br>
+Return&nbsp;the&nbsp;address&nbsp;of&nbsp;the&nbsp;C&nbsp;instance&nbsp;internal&nbsp;buffer</tt></dd></dl>
+ <dl><dt><a name="-alignment"><strong>alignment</strong></a>(...)</dt><dd><tt><a href="#-alignment">alignment</a>(C&nbsp;type)&nbsp;-&gt;&nbsp;integer<br>
+<a href="#-alignment">alignment</a>(C&nbsp;instance)&nbsp;-&gt;&nbsp;integer<br>
+Return&nbsp;the&nbsp;alignment&nbsp;requirements&nbsp;of&nbsp;a&nbsp;C&nbsp;instance</tt></dd></dl>
+ <dl><dt><a name="-byref"><strong>byref</strong></a>(...)</dt><dd><tt><a href="#-byref">byref</a>(C&nbsp;instance[,&nbsp;offset=0])&nbsp;-&gt;&nbsp;byref-object<br>
+Return&nbsp;a&nbsp;pointer&nbsp;lookalike&nbsp;to&nbsp;a&nbsp;C&nbsp;instance,&nbsp;only&nbsp;usable<br>
+as&nbsp;function&nbsp;argument</tt></dd></dl>
+ <dl><dt><a name="-date2num"><strong>date2num</strong></a>(...)</dt><dd><tt><a href="#-date2num">date2num</a>(dates,units,calendar='standard')<br>
+&nbsp;<br>
+Return&nbsp;numeric&nbsp;time&nbsp;values&nbsp;given&nbsp;datetime&nbsp;objects.&nbsp;The&nbsp;units<br>
+of&nbsp;the&nbsp;numeric&nbsp;time&nbsp;values&nbsp;are&nbsp;described&nbsp;by&nbsp;the&nbsp;L{units}&nbsp;argument<br>
+and&nbsp;the&nbsp;L{calendar}&nbsp;keyword.&nbsp;The&nbsp;datetime&nbsp;objects&nbsp;must<br>
+be&nbsp;in&nbsp;UTC&nbsp;with&nbsp;no&nbsp;time-zone&nbsp;offset.&nbsp;&nbsp;If&nbsp;there&nbsp;is&nbsp;a&nbsp;<br>
+time-zone&nbsp;offset&nbsp;in&nbsp;C{units},&nbsp;it&nbsp;will&nbsp;be&nbsp;applied&nbsp;to&nbsp;the<br>
+returned&nbsp;numeric&nbsp;values.<br>
+&nbsp;<br>
+Like&nbsp;the&nbsp;matplotlib&nbsp;C{date2num}&nbsp;function,&nbsp;except&nbsp;that&nbsp;it&nbsp;allows<br>
+for&nbsp;different&nbsp;units&nbsp;and&nbsp;calendars.&nbsp;&nbsp;Behaves&nbsp;the&nbsp;same&nbsp;if<br>
+C{units&nbsp;=&nbsp;'days&nbsp;since&nbsp;0001-01-01&nbsp;00:00:00'}&nbsp;and&nbsp;<br>
+C{calendar&nbsp;=&nbsp;'proleptic_gregorian'}.<br>
+&nbsp;<br>
+@param&nbsp;dates:&nbsp;A&nbsp;datetime&nbsp;object&nbsp;or&nbsp;a&nbsp;sequence&nbsp;of&nbsp;datetime&nbsp;objects.<br>
+&nbsp;The&nbsp;datetime&nbsp;objects&nbsp;should&nbsp;not&nbsp;include&nbsp;a&nbsp;time-zone&nbsp;offset.<br>
+&nbsp;<br>
+@param&nbsp;units:&nbsp;a&nbsp;string&nbsp;of&nbsp;the&nbsp;form&nbsp;C{'B{time&nbsp;units}&nbsp;since&nbsp;B{reference&nbsp;time}}'<br>
+&nbsp;describing&nbsp;the&nbsp;time&nbsp;units.&nbsp;B{C{time&nbsp;units}}&nbsp;can&nbsp;be&nbsp;days,&nbsp;hours,&nbsp;minutes<br>
+&nbsp;or&nbsp;seconds.&nbsp;&nbsp;B{C{reference&nbsp;time}}&nbsp;is&nbsp;the&nbsp;time&nbsp;origin.&nbsp;A&nbsp;valid&nbsp;choice<br>
+&nbsp;would&nbsp;be&nbsp;units=C{'hours&nbsp;since&nbsp;1800-01-01&nbsp;00:00:00&nbsp;-6:00'}.<br>
+&nbsp;<br>
+@param&nbsp;calendar:&nbsp;describes&nbsp;the&nbsp;calendar&nbsp;used&nbsp;in&nbsp;the&nbsp;time&nbsp;calculations.&nbsp;<br>
+&nbsp;All&nbsp;the&nbsp;values&nbsp;currently&nbsp;defined&nbsp;in&nbsp;the&nbsp;U{CF&nbsp;metadata&nbsp;convention&nbsp;<br>
+&nbsp;&lt;<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/">http://cf-pcmdi.llnl.gov/documents/cf-conventions/</a>&gt;}&nbsp;are&nbsp;supported.<br>
+&nbsp;Valid&nbsp;calendars&nbsp;C{'standard',&nbsp;'gregorian',&nbsp;'proleptic_gregorian'<br>
+&nbsp;'noleap',&nbsp;'365_day',&nbsp;'360_day',&nbsp;'julian',&nbsp;'all_leap',&nbsp;'366_day'}.<br>
+&nbsp;Default&nbsp;is&nbsp;C{'standard'},&nbsp;which&nbsp;is&nbsp;a&nbsp;mixed&nbsp;Julian/Gregorian&nbsp;calendar.<br>
+&nbsp;<br>
+@return:&nbsp;a&nbsp;numeric&nbsp;time&nbsp;value,&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;numeric&nbsp;time&nbsp;values.<br>
+&nbsp;<br>
+The&nbsp;maximum&nbsp;resolution&nbsp;of&nbsp;the&nbsp;numeric&nbsp;time&nbsp;values&nbsp;is&nbsp;1&nbsp;second.</tt></dd></dl>
+ <dl><dt><a name="-get_errno"><strong>get_errno</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-ioctl"><strong>ioctl</strong></a>(...)</dt><dd><tt><a href="#-ioctl">ioctl</a>(fd,&nbsp;opt[,&nbsp;arg[,&nbsp;mutate_flag]])<br>
+&nbsp;<br>
+Perform&nbsp;the&nbsp;requested&nbsp;operation&nbsp;on&nbsp;file&nbsp;descriptor&nbsp;fd.&nbsp;&nbsp;The&nbsp;operation&nbsp;is<br>
+defined&nbsp;by&nbsp;opt&nbsp;and&nbsp;is&nbsp;operating&nbsp;system&nbsp;dependent.&nbsp;&nbsp;Typically&nbsp;these&nbsp;codes&nbsp;are<br>
+retrieved&nbsp;from&nbsp;the&nbsp;fcntl&nbsp;or&nbsp;termios&nbsp;library&nbsp;modules.<br>
+&nbsp;<br>
+The&nbsp;argument&nbsp;arg&nbsp;is&nbsp;optional,&nbsp;and&nbsp;defaults&nbsp;to&nbsp;0;&nbsp;it&nbsp;may&nbsp;be&nbsp;an&nbsp;int&nbsp;or&nbsp;a<br>
+buffer&nbsp;containing&nbsp;character&nbsp;data&nbsp;(most&nbsp;likely&nbsp;a&nbsp;string&nbsp;or&nbsp;an&nbsp;array).&nbsp;<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;argument&nbsp;is&nbsp;a&nbsp;mutable&nbsp;buffer&nbsp;(such&nbsp;as&nbsp;an&nbsp;array)&nbsp;and&nbsp;if&nbsp;the<br>
+mutate_flag&nbsp;argument&nbsp;(which&nbsp;is&nbsp;only&nbsp;allowed&nbsp;in&nbsp;this&nbsp;case)&nbsp;is&nbsp;true&nbsp;then&nbsp;the<br>
+buffer&nbsp;is&nbsp;(in&nbsp;effect)&nbsp;passed&nbsp;to&nbsp;the&nbsp;operating&nbsp;system&nbsp;and&nbsp;changes&nbsp;made&nbsp;by<br>
+the&nbsp;OS&nbsp;will&nbsp;be&nbsp;reflected&nbsp;in&nbsp;the&nbsp;contents&nbsp;of&nbsp;the&nbsp;buffer&nbsp;after&nbsp;the&nbsp;call&nbsp;has<br>
+returned.&nbsp;&nbsp;The&nbsp;return&nbsp;value&nbsp;is&nbsp;the&nbsp;integer&nbsp;returned&nbsp;by&nbsp;the&nbsp;ioctl&nbsp;system<br>
+call.<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;argument&nbsp;is&nbsp;a&nbsp;mutable&nbsp;buffer&nbsp;and&nbsp;the&nbsp;mutable_flag&nbsp;argument&nbsp;is&nbsp;not<br>
+passed&nbsp;or&nbsp;is&nbsp;false,&nbsp;the&nbsp;behavior&nbsp;is&nbsp;as&nbsp;if&nbsp;a&nbsp;string&nbsp;had&nbsp;been&nbsp;passed.&nbsp;&nbsp;This<br>
+behavior&nbsp;will&nbsp;change&nbsp;in&nbsp;future&nbsp;releases&nbsp;of&nbsp;Python.<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;argument&nbsp;is&nbsp;an&nbsp;immutable&nbsp;buffer&nbsp;(most&nbsp;likely&nbsp;a&nbsp;string)&nbsp;then&nbsp;a&nbsp;copy<br>
+of&nbsp;the&nbsp;buffer&nbsp;is&nbsp;passed&nbsp;to&nbsp;the&nbsp;operating&nbsp;system&nbsp;and&nbsp;the&nbsp;return&nbsp;value&nbsp;is&nbsp;a<br>
+string&nbsp;of&nbsp;the&nbsp;same&nbsp;length&nbsp;containing&nbsp;whatever&nbsp;the&nbsp;operating&nbsp;system&nbsp;put&nbsp;in<br>
+the&nbsp;buffer.&nbsp;&nbsp;The&nbsp;length&nbsp;of&nbsp;the&nbsp;arg&nbsp;buffer&nbsp;in&nbsp;this&nbsp;case&nbsp;is&nbsp;not&nbsp;allowed&nbsp;to<br>
+exceed&nbsp;1024&nbsp;bytes.<br>
+&nbsp;<br>
+If&nbsp;the&nbsp;arg&nbsp;given&nbsp;is&nbsp;an&nbsp;integer&nbsp;or&nbsp;if&nbsp;none&nbsp;is&nbsp;specified,&nbsp;the&nbsp;result&nbsp;value&nbsp;is<br>
+an&nbsp;integer&nbsp;corresponding&nbsp;to&nbsp;the&nbsp;return&nbsp;value&nbsp;of&nbsp;the&nbsp;ioctl&nbsp;call&nbsp;in&nbsp;the&nbsp;C<br>
+code.</tt></dd></dl>
+ <dl><dt><a name="-main"><strong>main</strong></a>()</dt><dd><tt>Main&nbsp;function.<br>
+&nbsp;<br>
+This&nbsp;function&nbsp;represents&nbsp;the&nbsp;user&nbsp;interface&nbsp;and&nbsp;is&nbsp;called&nbsp;when&nbsp;the<br>
+program&nbsp;is&nbsp;executed.&nbsp;Start&nbsp;the&nbsp;program&nbsp;by&nbsp;executing&nbsp;it&nbsp;with&nbsp;the&nbsp;following<br>
+statement&nbsp;in&nbsp;your&nbsp;shell&nbsp;to&nbsp;get&nbsp;more&nbsp;information:&nbsp;gdal_2Interface.py&nbsp;--help</tt></dd></dl>
+ <dl><dt><a name="-num2date"><strong>num2date</strong></a>(...)</dt><dd><tt><a href="#-num2date">num2date</a>(times,units,calendar='standard')<br>
+&nbsp;<br>
+Return&nbsp;datetime&nbsp;objects&nbsp;given&nbsp;numeric&nbsp;time&nbsp;values.&nbsp;The&nbsp;units<br>
+of&nbsp;the&nbsp;numeric&nbsp;time&nbsp;values&nbsp;are&nbsp;described&nbsp;by&nbsp;the&nbsp;C{units}&nbsp;argument<br>
+and&nbsp;the&nbsp;C{calendar}&nbsp;keyword.&nbsp;The&nbsp;returned&nbsp;datetime&nbsp;objects&nbsp;represent&nbsp;<br>
+UTC&nbsp;with&nbsp;no&nbsp;time-zone&nbsp;offset,&nbsp;even&nbsp;if&nbsp;the&nbsp;specified&nbsp;<br>
+C{units}&nbsp;contain&nbsp;a&nbsp;time-zone&nbsp;offset.<br>
+&nbsp;<br>
+Like&nbsp;the&nbsp;matplotlib&nbsp;C{num2date}&nbsp;function,&nbsp;except&nbsp;that&nbsp;it&nbsp;allows<br>
+for&nbsp;different&nbsp;units&nbsp;and&nbsp;calendars.&nbsp;&nbsp;Behaves&nbsp;the&nbsp;same&nbsp;if<br>
+C{units&nbsp;=&nbsp;'days&nbsp;since&nbsp;001-01-01&nbsp;00:00:00'}&nbsp;and&nbsp;<br>
+C{calendar&nbsp;=&nbsp;'proleptic_gregorian'}.<br>
+&nbsp;<br>
+@param&nbsp;times:&nbsp;numeric&nbsp;time&nbsp;values.&nbsp;Maximum&nbsp;resolution&nbsp;is&nbsp;1&nbsp;second.<br>
+&nbsp;<br>
+@param&nbsp;units:&nbsp;a&nbsp;string&nbsp;of&nbsp;the&nbsp;form&nbsp;C{'B{time&nbsp;units}&nbsp;since&nbsp;B{reference&nbsp;time}}'<br>
+describing&nbsp;the&nbsp;time&nbsp;units.&nbsp;B{C{time&nbsp;units}}&nbsp;can&nbsp;be&nbsp;days,&nbsp;hours,&nbsp;minutes<br>
+or&nbsp;seconds.&nbsp;&nbsp;B{C{reference&nbsp;time}}&nbsp;is&nbsp;the&nbsp;time&nbsp;origin.&nbsp;A&nbsp;valid&nbsp;choice<br>
+would&nbsp;be&nbsp;units=C{'hours&nbsp;since&nbsp;1800-01-01&nbsp;00:00:00&nbsp;-6:00'}.<br>
+&nbsp;<br>
+@param&nbsp;calendar:&nbsp;describes&nbsp;the&nbsp;calendar&nbsp;used&nbsp;in&nbsp;the&nbsp;time&nbsp;calculations.&nbsp;<br>
+All&nbsp;the&nbsp;values&nbsp;currently&nbsp;defined&nbsp;in&nbsp;the&nbsp;U{CF&nbsp;metadata&nbsp;convention&nbsp;<br>
+&lt;<a href="http://cf-pcmdi.llnl.gov/documents/cf-conventions/">http://cf-pcmdi.llnl.gov/documents/cf-conventions/</a>&gt;}&nbsp;are&nbsp;supported.<br>
+Valid&nbsp;calendars&nbsp;C{'standard',&nbsp;'gregorian',&nbsp;'proleptic_gregorian'<br>
+'noleap',&nbsp;'365_day',&nbsp;'360_day',&nbsp;'julian',&nbsp;'all_leap',&nbsp;'366_day'}.<br>
+Default&nbsp;is&nbsp;C{'standard'},&nbsp;which&nbsp;is&nbsp;a&nbsp;mixed&nbsp;Julian/Gregorian&nbsp;calendar.<br>
+&nbsp;<br>
+@return:&nbsp;a&nbsp;datetime&nbsp;instance,&nbsp;or&nbsp;an&nbsp;array&nbsp;of&nbsp;datetime&nbsp;instances.<br>
+&nbsp;<br>
+The&nbsp;datetime&nbsp;instances&nbsp;returned&nbsp;are&nbsp;'real'&nbsp;python&nbsp;datetime&nbsp;<br>
+objects&nbsp;if&nbsp;the&nbsp;date&nbsp;falls&nbsp;in&nbsp;the&nbsp;Gregorian&nbsp;calendar&nbsp;(i.e.&nbsp;<br>
+C{calendar='proleptic_gregorian'},&nbsp;or&nbsp;C{calendar&nbsp;=&nbsp;'standard'}&nbsp;or&nbsp;C{'gregorian'}<br>
+and&nbsp;the&nbsp;date&nbsp;is&nbsp;after&nbsp;1582-10-15).&nbsp;Otherwise,&nbsp;they&nbsp;are&nbsp;'phony'&nbsp;datetime&nbsp;<br>
+objects&nbsp;which&nbsp;support&nbsp;some&nbsp;but&nbsp;not&nbsp;all&nbsp;the&nbsp;methods&nbsp;of&nbsp;'real'&nbsp;python<br>
+datetime&nbsp;objects.&nbsp;&nbsp;This&nbsp;is&nbsp;because&nbsp;the&nbsp;python&nbsp;datetime&nbsp;module&nbsp;cannot<br>
+the&nbsp;uses&nbsp;the&nbsp;C{'proleptic_gregorian'}&nbsp;calendar,&nbsp;even&nbsp;before&nbsp;the&nbsp;switch<br>
+occured&nbsp;from&nbsp;the&nbsp;Julian&nbsp;calendar&nbsp;in&nbsp;1582.&nbsp;The&nbsp;datetime&nbsp;instances<br>
+do&nbsp;not&nbsp;contain&nbsp;a&nbsp;time-zone&nbsp;offset,&nbsp;even&nbsp;if&nbsp;the&nbsp;specified&nbsp;C{units}<br>
+contains&nbsp;one.</tt></dd></dl>
+ <dl><dt><a name="-pointer"><strong>pointer</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-resize"><strong>resize</strong></a>(...)</dt><dd><tt>Resize&nbsp;the&nbsp;memory&nbsp;buffer&nbsp;of&nbsp;a&nbsp;ctypes&nbsp;instance</tt></dd></dl>
+ <dl><dt><a name="-set_conversion_mode"><strong>set_conversion_mode</strong></a>(...)</dt><dd><tt><a href="#-set_conversion_mode">set_conversion_mode</a>(encoding,&nbsp;errors)&nbsp;-&gt;&nbsp;(previous-encoding,&nbsp;previous-errors)<br>
+&nbsp;<br>
+Set&nbsp;the&nbsp;encoding&nbsp;and&nbsp;error&nbsp;handling&nbsp;ctypes&nbsp;uses&nbsp;when&nbsp;converting<br>
+between&nbsp;unicode&nbsp;and&nbsp;strings.&nbsp;&nbsp;Returns&nbsp;the&nbsp;previous&nbsp;values.</tt></dd></dl>
+ <dl><dt><a name="-set_errno"><strong>set_errno</strong></a>(...)</dt></dl>
+ <dl><dt><a name="-sizeof"><strong>sizeof</strong></a>(...)</dt><dd><tt><a href="#-sizeof">sizeof</a>(C&nbsp;type)&nbsp;-&gt;&nbsp;integer<br>
+<a href="#-sizeof">sizeof</a>(C&nbsp;instance)&nbsp;-&gt;&nbsp;integer<br>
+Return&nbsp;the&nbsp;size&nbsp;in&nbsp;bytes&nbsp;of&nbsp;a&nbsp;C&nbsp;instance</tt></dd></dl>
+</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#55aa55">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Data</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#55aa55"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%"><strong>ALL_FLOATS</strong> = ['float64', 'double', 'Float64', 'f8', 'float', 'float32', 'Float32', 'f4']<br>
+<strong>ALL_INTS</strong> = ['byte', 'int8', 'i1', 'ubyte', 'UByte', 'uint8', 'u1', 'short', 'int16', 'Int16', 'i2', 'ushort', 'uint16', 'UInt16', 'u2', 'int', 'int32', 'Int32', 'integer', 'i4', ...]<br>
+<strong>BOOL</strong> = ['bool', 'Bool']<br>
+<strong>BYTE</strong> = ['byte', 'int8', 'i1']<br>
+<strong>BasicContext</strong> = Context(prec=9, rounding=ROUND_HALF_UP, Emin=-99...ow, InvalidOperation, Underflow, DivisionByZero])<br>
+<strong>CE_Debug</strong> = 1<br>
+<strong>CE_Failure</strong> = 3<br>
+<strong>CE_Fatal</strong> = 4<br>
+<strong>CE_None</strong> = 0<br>
+<strong>CE_Warning</strong> = 2<br>
+<strong>COORD_KEYWORDS</strong> = ['time', 'height', 'elev', 'depth', 'lat', 'latitude', 'lon', 'longitude', '_id']<br>
+<strong>CPLES_BackslashQuotable</strong> = 0<br>
+<strong>CPLES_CSV</strong> = 4<br>
+<strong>CPLES_SQL</strong> = 3<br>
+<strong>CPLES_URL</strong> = 2<br>
+<strong>CPLES_XML</strong> = 1<br>
+<strong>CPLE_AppDefined</strong> = 1<br>
+<strong>CPLE_AssertionFailed</strong> = 7<br>
+<strong>CPLE_FileIO</strong> = 3<br>
+<strong>CPLE_IllegalArg</strong> = 5<br>
+<strong>CPLE_NoWriteAccess</strong> = 8<br>
+<strong>CPLE_None</strong> = 0<br>
+<strong>CPLE_NotSupported</strong> = 6<br>
+<strong>CPLE_OpenFailed</strong> = 4<br>
+<strong>CPLE_OutOfMemory</strong> = 2<br>
+<strong>CPLE_UserInterrupt</strong> = 9<br>
+<strong>CXT_Attribute</strong> = 2<br>
+<strong>CXT_Comment</strong> = 3<br>
+<strong>CXT_Element</strong> = 0<br>
+<strong>CXT_Literal</strong> = 4<br>
+<strong>CXT_Text</strong> = 1<br>
+<strong>DCAP_CREATE</strong> = 'DCAP_CREATE'<br>
+<strong>DCAP_CREATECOPY</strong> = 'DCAP_CREATECOPY'<br>
+<strong>DECLARATION_GDAL_REPROJECTION</strong> = '_repr.'<br>
+<strong>DECLARATION_NETCDF_STATION</strong> = '_time_series'<br>
+<strong>DEFAULT_MODE</strong> = 0<br>
+<strong>DESCRIPTION</strong> = 'Conversion tool of CEOP-AEGIS data model for GDAL readable raster data'<br>
+<strong>DMD_CREATIONDATATYPES</strong> = 'DMD_CREATIONDATATYPES'<br>
+<strong>DMD_CREATIONOPTIONLIST</strong> = 'DMD_CREATIONOPTIONLIST'<br>
+<strong>DMD_EXTENSION</strong> = 'DMD_EXTENSION'<br>
+<strong>DMD_HELPTOPIC</strong> = 'DMD_HELPTOPIC'<br>
+<strong>DMD_LONGNAME</strong> = 'DMD_LONGNAME'<br>
+<strong>DMD_MIMETYPE</strong> = 'DMD_MIMETYPE'<br>
+<strong>DOUBLE</strong> = ['float64', 'double', 'Float64', 'f8']<br>
+<strong>DefaultContext</strong> = Context(prec=28, rounding=ROUND_HALF_EVEN, Emin=...aps=[Overflow, InvalidOperation, DivisionByZero])<br>
+<strong>EPILOG</strong> = 'Author: Nicolai Holzer (E-mail: first-name dot last-name @ mailbox.tu-dresden.de)'<br>
+<strong>EXTEND</strong> = [26.52, 39.600000000000001, 73.459999999999994, 104.37]<br>
+<strong>ExtendedContext</strong> = Context(prec=9, rounding=ROUND_HALF_EVEN, Emin=-..., Emax=999999999, capitals=1, flags=[], traps=[])<br>
+<strong>FILENAME_DEFAULT_SETTINGS_XML</strong> = 'interface_Settings.xml'<br>
+<strong>FILENAME_SUFFIX_NCML</strong> = '__ncml.xml'<br>
+<strong>FILENAME_SUFFIX_NETCDF</strong> = '.nc'<br>
+<strong>FILENAME_SUFFIX_NUMPYDATA</strong> = '__data.npy'<br>
+<strong>FILENAME_SUFFIX_NUMPYXML</strong> = '__coords.xml'<br>
+<strong>FLOAT</strong> = ['float', 'float32', 'Float32', 'f4']<br>
+<strong>GA_ReadOnly</strong> = 0<br>
+<strong>GA_Update</strong> = 1<br>
+<strong>GCI_AlphaBand</strong> = 6<br>
+<strong>GCI_BlackBand</strong> = 13<br>
+<strong>GCI_BlueBand</strong> = 5<br>
+<strong>GCI_CyanBand</strong> = 10<br>
+<strong>GCI_GrayIndex</strong> = 1<br>
+<strong>GCI_GreenBand</strong> = 4<br>
+<strong>GCI_HueBand</strong> = 7<br>
+<strong>GCI_LightnessBand</strong> = 9<br>
+<strong>GCI_MagentaBand</strong> = 11<br>
+<strong>GCI_PaletteIndex</strong> = 2<br>
+<strong>GCI_RedBand</strong> = 3<br>
+<strong>GCI_SaturationBand</strong> = 8<br>
+<strong>GCI_Undefined</strong> = 0<br>
+<strong>GCI_YellowBand</strong> = 12<br>
+<strong>GDAL_DTYPES</strong> = ['byte', 'int8', 'i1', 'short', 'int16', 'Int16', 'i2', 'ushort', 'uint16', 'UInt16', 'u2', 'int', 'int32', 'Int32', 'integer', 'i4', 'uint', 'uint32', 'UInt32', 'unsigned_integer', ...]<br>
+<strong>GDT_Byte</strong> = 1<br>
+<strong>GDT_CFloat32</strong> = 10<br>
+<strong>GDT_CFloat64</strong> = 11<br>
+<strong>GDT_CInt16</strong> = 8<br>
+<strong>GDT_CInt32</strong> = 9<br>
+<strong>GDT_Float32</strong> = 6<br>
+<strong>GDT_Float64</strong> = 7<br>
+<strong>GDT_Int16</strong> = 3<br>
+<strong>GDT_Int32</strong> = 5<br>
+<strong>GDT_TypeCount</strong> = 12<br>
+<strong>GDT_UInt16</strong> = 2<br>
+<strong>GDT_UInt32</strong> = 4<br>
+<strong>GDT_Unknown</strong> = 0<br>
+<strong>GFT_Integer</strong> = 0<br>
+<strong>GFT_Real</strong> = 1<br>
+<strong>GFT_String</strong> = 2<br>
+<strong>GFU_Alpha</strong> = 9<br>
+<strong>GFU_AlphaMax</strong> = 17<br>
+<strong>GFU_AlphaMin</strong> = 13<br>
+<strong>GFU_Blue</strong> = 8<br>
+<strong>GFU_BlueMax</strong> = 16<br>
+<strong>GFU_BlueMin</strong> = 12<br>
+<strong>GFU_Generic</strong> = 0<br>
+<strong>GFU_Green</strong> = 7<br>
+<strong>GFU_GreenMax</strong> = 15<br>
+<strong>GFU_GreenMin</strong> = 11<br>
+<strong>GFU_Max</strong> = 4<br>
+<strong>GFU_MaxCount</strong> = 18<br>
+<strong>GFU_Min</strong> = 3<br>
+<strong>GFU_MinMax</strong> = 5<br>
+<strong>GFU_Name</strong> = 2<br>
+<strong>GFU_PixelCount</strong> = 1<br>
+<strong>GFU_Red</strong> = 6<br>
+<strong>GFU_RedMax</strong> = 14<br>
+<strong>GFU_RedMin</strong> = 10<br>
+<strong>GF_Read</strong> = 0<br>
+<strong>GF_Write</strong> = 1<br>
+<strong>GMF_ALL_VALID</strong> = 1<br>
+<strong>GMF_ALPHA</strong> = 4<br>
+<strong>GMF_NODATA</strong> = 8<br>
+<strong>GMF_PER_DATASET</strong> = 2<br>
+<strong>GPI_CMYK</strong> = 2<br>
+<strong>GPI_Gray</strong> = 0<br>
+<strong>GPI_HLS</strong> = 3<br>
+<strong>GPI_RGB</strong> = 1<br>
+<strong>GRA_Bilinear</strong> = 1<br>
+<strong>GRA_Cubic</strong> = 2<br>
+<strong>GRA_CubicSpline</strong> = 3<br>
+<strong>GRA_Lanczos</strong> = 4<br>
+<strong>GRA_NearestNeighbour</strong> = 0<br>
+<strong>HEIGHT</strong> = ['height', 'elev', 'depth']<br>
+<strong>HEIGHT_UNITS</strong> = ['m', '1']<br>
+<strong>ID</strong> = ['_id']<br>
+<strong>INTEGER</strong> = ['int', 'int32', 'Int32', 'integer', 'i4']<br>
+<strong>INTERFACE_LOGGER_ROOT</strong> = 'interface'<br>
+<strong>LATITUDE</strong> = ['lat', 'latitude']<br>
+<strong>LATITUDE_UNITS</strong> = ['degrees_north']<br>
+<strong>LAT_MAX</strong> = 39.600000000000001<br>
+<strong>LAT_MIN</strong> = 26.52<br>
+<strong>LONG</strong> = ['long', 'int64', 'Int64', 'i8']<br>
+<strong>LONGITUDE</strong> = ['lon', 'longitude']<br>
+<strong>LONGITUDE_UNITS</strong> = ['degrees_east']<br>
+<strong>LON_MAX</strong> = 104.37<br>
+<strong>LON_MIN</strong> = 73.459999999999994<br>
+<strong>MODEL_REFERENCE_TIME_UNITS</strong> = ['hours since 1970-01-01 00:00:0.0', 'msec since 1970-01-01 00:00:0.0']<br>
+<strong>MODULE_LOGGER_ROOT</strong> = 'gdal'<br>
+<strong>NETCDF3_DTYPES</strong> = ['byte', 'int8', 'i1', 'short', 'int16', 'Int16', 'i2', 'int', 'int32', 'Int32', 'integer', 'i4', 'float', 'float32', 'Float32', 'f4', 'float64', 'double', 'Float64', 'f8', ...]<br>
+<strong>NETCDF_FORMAT</strong> = 'NETCDF3_CLASSIC'<br>
+<strong>NODATA</strong> = ''<br>
+<strong>NUMPYDATA_DTYPE</strong> = ''<br>
+<strong>NUMPY_DTYPES</strong> = ['bool', 'Bool', 'byte', 'int8', 'i1', 'ubyte', 'UByte', 'uint8', 'u1', 'short', 'int16', 'Int16', 'i2', 'ushort', 'uint16', 'UInt16', 'u2', 'int', 'int32', 'Int32', ...]<br>
+<strong>PROJECTION_DATAMODEL</strong> = 'GEOGCS["WGS 84", DATUM["WGS_1984",     SPHEROID[...e",0.0174532925199433], AUTHORITY["EPSG","4326"]]'<br>
+<strong>RASTER_XSIZE</strong> = 200<br>
+<strong>RASTER_YSIZE</strong> = 100<br>
+<strong>ROUND_05UP</strong> = 'ROUND_05UP'<br>
+<strong>ROUND_CEILING</strong> = 'ROUND_CEILING'<br>
+<strong>ROUND_DOWN</strong> = 'ROUND_DOWN'<br>
+<strong>ROUND_FLOOR</strong> = 'ROUND_FLOOR'<br>
+<strong>ROUND_HALF_DOWN</strong> = 'ROUND_HALF_DOWN'<br>
+<strong>ROUND_HALF_EVEN</strong> = 'ROUND_HALF_EVEN'<br>
+<strong>ROUND_HALF_UP</strong> = 'ROUND_HALF_UP'<br>
+<strong>ROUND_UP</strong> = 'ROUND_UP'<br>
+<strong>RTLD_GLOBAL</strong> = 256<br>
+<strong>RTLD_LOCAL</strong> = 0<br>
+<strong>SHORT</strong> = ['short', 'int16', 'Int16', 'i2']<br>
+<strong>STRING</strong> = ['char', 'string', 'S1']<br>
+<strong>TIME</strong> = ['time']<br>
+<strong>USAGE</strong> = '%prog [options] operation data    <font color="#c040c0">\n</font>[options]:   ...er data file that is readable by the GDAL library'<br>
+<strong>U_BYTE</strong> = ['ubyte', 'UByte', 'uint8', 'u1']<br>
+<strong>U_INTEGER</strong> = ['uint', 'uint32', 'UInt32', 'unsigned_integer', 'u4']<br>
+<strong>U_LONG</strong> = ['ulong', 'uint64', 'UInt64', 'u8']<br>
+<strong>U_SHORT</strong> = ['ushort', 'uint16', 'UInt16', 'u2']<br>
+<strong>VERSION</strong> = '%prog version v0.1.3 from 2011-03-28'<br>
+<strong>__author__</strong> = 'Nicolai Holzer'<br>
+<strong>__author_email__</strong> = 'first-name dot last-name @ mailbox.tu-dresden.de'<br>
+<strong>__date__</strong> = '2011-03-28'<br>
+<strong>__version__</strong> = 'v0.1.3'<br>
+<strong>cdll</strong> = &lt;ctypes.LibraryLoader object&gt;<br>
+<strong>default_widgets</strong> = [&lt;etc.progressBar.Percentage object&gt;, ' ', &lt;etc.progressBar.Bar object&gt;]<br>
+<strong>environ</strong> = {'LANG': 'en_US.UTF-8', 'USERNAME': 'root', 'TER...36:*.spx=00;36:*.xspf=00;36:', 'DISPLAY': ':0.0'}<br>
+<strong>memmove</strong> = &lt;CFunctionType object&gt;<br>
+<strong>memset</strong> = &lt;CFunctionType object&gt;<br>
+<strong>pydll</strong> = &lt;ctypes.LibraryLoader object&gt;<br>
+<strong>pythonapi</strong> = &lt;PyDLL 'None', handle 550918 at 93d99cc&gt;</td></tr></table><p>
+<table width="100%" cellspacing=0 cellpadding=2 border=0 summary="section">
+<tr bgcolor="#7799ee">
+<td colspan=3 valign=bottom>&nbsp;<br>
+<font color="#ffffff" face="helvetica, arial"><big><strong>Author</strong></big></font></td></tr>
+    
+<tr><td bgcolor="#7799ee"><tt>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</tt></td><td>&nbsp;</td>
+<td width="100%">Nicolai&nbsp;Holzer</td></tr></table>
+</body></html>
